@@ -1,31 +1,35 @@
 <!DOCTYPE html>
-<!--suppress CheckEmptyScriptTag -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Cheatsheet</title>
-
-
-    <!--<g id="diluteNone">-->
-    <!--<g id="leftGene">-->
-    <!--<path d="m0 35.4c0 0-0.3 7 8.9 7 9.1 0 8.9-7 8.9-7V7c0 0 0.3-7-8.9-7C-0.3 0 0 7 0 7Z"/>-->
-    <!--<path d="m0 48.6c0 0-0.3-7.6 8.9-7.6 9.1 0 8.9 7.6 8.9 7.6v58.9c0 0 0.3 7-8.9 7-9.1 0-8.9-7-8.9-7z"/>-->
-    <!--</g>-->
-    <!--<g id="rightGene">-->
-    <!--<path d="m20.6 35.4c0 0-0.3 7 8.9 7 9.1 0 8.9-7 8.9-7V7c0 0 0.3-7-8.9-7C20.3 0 20.6 7 20.6 7Z"/>-->
-    <!--<path d="m20.6 48.6c0 0-0.3-7.6 8.9-7.6 9.1 0 8.9 7.6 8.9 7.6v58.9c0 0 0.3 7-8.9 7-9.1 0-8.9-7-8.9-7z"/>-->
-    <!--</g>-->
-    <!--</g>-->
-
+    <script src="snap.svg-min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,700,800" rel="stylesheet">
     <style>
+        body {
+            overflow-x: auto;
+        }
+
         table, th, td {
-            border-bottom: 1px solid black;
+            border: 1px solid black;
             border-collapse: collapse;
-            background: silver;
+            text-align: center;
+        }
+
+        table {
+            display: inline-table;
+            width: 1000px;
+            margin-bottom: 32px;
         }
 
         td {
-            padding: 16px 64px;
+            padding: 16px 0;
+        }
+
+        th {
+            font-size: 20px;
+            padding: 8px 0;
+            font-family: 'Open Sans', Arial, sans-serif;
         }
     </style>
 
@@ -35,183 +39,463 @@
 </head>
 <body>
 <svg style="display:none;">
-    <symbol id="gene" viewBox="0 0 18 114">
-        <path d="M0 35s0 7 9 7 9-7 9-7V7s0-7-9-7-9 7-9 7z"/>
-        <path d="M0 49s0-8 9-8 9 8 9 8v58s0 8-9 7c-9 0-9-7-9-7z"/>
+    <symbol id="gene" viewBox="0 -9 18 125">
+        <path d="M0 35s0 7 9 7 9-7 9-7V7s0-7-9-7-9 7-9 7z" stroke="#000" stroke-miterlimit="10"/>
+        <path d="M0 49s0-8 9-8 9 8 9 8v58s0 8-9 7c-9 0-9-7-9-7z" stroke="#000" stroke-miterlimit="10"/>
     </symbol>
 </svg>
 
-<table id="dilute">
+<table>
+    <tr>
+        <th colspan="3">Red/tortie gene</th>
+    </tr>
     <tr>
         <td>
-            <svg width="18" height="100">
+            <svg width="10" height="56">
                 <use xlink:href="#gene"/>
             </svg>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-        </td>
-        <td>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-            <svg width="18" height="100" fill="gray">
+            <svg width="10" height="56">
                 <use xlink:href="#gene"/>
             </svg>
         </td>
         <td>
-            <svg width="18" height="100" fill="gray">
+            <svg width="10" height="56">
                 <use xlink:href="#gene"/>
             </svg>
-            <svg width="18" height="100" fill="gray">
+            <svg width="10" height="56" fill="#a75a13">
+                <use xlink:href="#gene"/>
+            </svg>
+        </td>
+        <td>
+            <svg width="10" height="56" fill="#a75a13">
+                <use xlink:href="#gene"/>
+            </svg>
+            <svg width="10" height="56" fill="#a75a13">
                 <use xlink:href="#gene"/>
             </svg>
         </td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
-
-
-<table id="agouti">
-    <tr>
         <td>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
+            <svg id="tortieBlack" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="tortieGray" height="125" width="150" viewBox="0 0 389 306"></svg>
         </td>
         <td>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-            <svg width="18" height="100" fill="peru">
-                <use xlink:href="#gene"/>
-            </svg>
+            <svg id="tortie" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="tortieDilute" height="125" width="150" viewBox="0 0 389 306"></svg>
         </td>
         <td>
-            <svg width="18" height="100" fill="peru">
-                <use xlink:href="#gene"/>
-            </svg>
-            <svg width="18" height="100" fill="peru">
-                <use xlink:href="#gene"/>
-            </svg>
+            <svg id="tortieRed" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="tortieCream" height="125" width="150" viewBox="0 0 389 306"></svg>
         </td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
     </tr>
 </table>
 
-
-<table id="piebald">
+<table>
+    <tr>
+        <th colspan="3">Dilute gene</th>
+    </tr>
     <tr>
         <td>
-            <svg width="18" height="100">
+            <svg width="10" height="56">
                 <use xlink:href="#gene"/>
             </svg>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-        </td>
-        <td>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-            <svg width="18" height="100" fill="white">
+            <svg width="10" height="56">
                 <use xlink:href="#gene"/>
             </svg>
         </td>
         <td>
-            <svg width="18" height="100" fill="white">
+            <svg width="10" height="56">
                 <use xlink:href="#gene"/>
             </svg>
-            <svg width="18" height="100" fill="white">
+            <svg width="10" height="56" fill="#929292">
+                <use xlink:href="#gene"/>
+            </svg>
+        </td>
+        <td>
+            <svg width="10" height="56" fill="#929292">
+                <use xlink:href="#gene"/>
+            </svg>
+            <svg width="10" height="56" fill="#929292">
                 <use xlink:href="#gene"/>
             </svg>
         </td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-</table>
-
-
-<table id="red">
-    <tr>
-        <td>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
+        <td colspan="2">
+            <svg id="diluteBlack" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="diluteRed" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="diluteTortie" height="125" width="150" viewBox="0 0 389 306"></svg>
         </td>
         <td>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-            <svg width="18" height="100" fill="chocolate">
-                <use xlink:href="#gene"/>
-            </svg>
+            <svg id="diluteGray" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="diluteCream" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="diluteBlueCream" height="125" width="150" viewBox="0 0 389 306"></svg>
         </td>
-        <td>
-            <svg width="18" height="100" fill="chocolate">
-                <use xlink:href="#gene"/>
-            </svg>
-            <svg width="18" height="100" fill="chocolate">
-                <use xlink:href="#gene"/>
-            </svg>
-        </td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
     </tr>
 </table>
 
-<table id="point">
+<table>
+    <tr>
+        <th colspan="3">Tabby gene</th>
+    </tr>
     <tr>
         <td>
-            <svg width="18" height="100">
+            <svg width="10" height="56">
                 <use xlink:href="#gene"/>
             </svg>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-        </td>
-        <td>
-            <svg width="18" height="100">
-                <use xlink:href="#gene"/>
-            </svg>
-            <svg width="18" height="100" fill="antiquewhite">
+            <svg width="10" height="56">
                 <use xlink:href="#gene"/>
             </svg>
         </td>
         <td>
-            <svg width="18" height="100" fill="antiquewhite">
+            <svg width="10" height="56">
                 <use xlink:href="#gene"/>
             </svg>
-            <svg width="18" height="100" fill="antiquewhite">
+            <svg width="10" height="56" fill="#83745c">
+                <use xlink:href="#gene"/>
+            </svg>
+        </td>
+        <td>
+            <svg width="10" height="56" fill="#83745c">
+                <use xlink:href="#gene"/>
+            </svg>
+            <svg width="10" height="56" fill="#83745c">
                 <use xlink:href="#gene"/>
             </svg>
         </td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>
+            <svg id="tabbyBlack" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="tabbyRed" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="tabbyTortie" height="125" width="150" viewBox="0 0 389 306"></svg>
+        </td>
+        <td colspan="2">
+            <svg id="tabby" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="tabbyGinger" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="tabbyTorbie" height="125" width="150" viewBox="0 0 389 306"></svg>
+        </td>
     </tr>
 </table>
+
+<table>
+    <tr>
+        <th colspan="3">Colorpoint gene</th>
+    </tr>
+    <tr>
+        <td>
+            <svg width="10" height="56">
+                <use xlink:href="#gene"/>
+            </svg>
+            <svg width="10" height="56">
+                <use xlink:href="#gene"/>
+            </svg>
+        </td>
+        <td>
+            <svg width="10" height="56">
+                <use xlink:href="#gene"/>
+            </svg>
+            <svg width="10" height="56" fill="#e4d5bd">
+                <use xlink:href="#gene"/>
+            </svg>
+        </td>
+        <td>
+            <svg width="10" height="56" fill="#e4d5bd">
+                <use xlink:href="#gene"/>
+            </svg>
+            <svg width="10" height="56" fill="#e4d5bd">
+                <use xlink:href="#gene"/>
+            </svg>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <svg id="pointBlack" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="pointTortie" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="pointTabby" height="125" width="150" viewBox="0 0 389 306"></svg>
+        </td>
+        <td>
+            <svg id="point" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="pointRed" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="pointLynx" height="125" width="150" viewBox="0 0 389 306"></svg>
+        </td>
+    </tr>
+</table>
+
+<table>
+    <tr>
+        <th colspan="3">White gene</th>
+    </tr>
+    <tr>
+        <td>
+            <svg width="10" height="56">
+                <use xlink:href="#gene"/>
+            </svg>
+            <svg width="10" height="56">
+                <use xlink:href="#gene"/>
+            </svg>
+        </td>
+        <td>
+            <svg width="10" height="56">
+                <use xlink:href="#gene"/>
+            </svg>
+            <svg width="10" height="56" fill="#f3efea">
+                <use xlink:href="#gene"/>
+            </svg>
+        </td>
+        <td>
+            <svg width="10" height="56" fill="#f3efea">
+                <use xlink:href="#gene"/>
+            </svg>
+            <svg width="10" height="56" fill="#f3efea">
+                <use xlink:href="#gene"/>
+            </svg>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <svg id="whiteBlack" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="whitePoint" height="125" width="150" viewBox="0 0 389 306"></svg>
+        </td>
+        <td>
+            <svg id="tuxBlack" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="tuxPoint" height="125" width="150" viewBox="0 0 389 306"></svg>
+        </td>
+        <td>
+            <svg id="vanBlack" height="125" width="150" viewBox="0 0 389 306"></svg>
+            <svg id="vanPoint" height="125" width="150" viewBox="0 0 389 306"></svg>
+        </td>
+    </tr>
+</table>
+
+<script>
+    (function () {
+        var palette = {
+            'point': "#e4d5bd",
+            'white': "#f3efea",
+            'black': "#2e2e2e",
+            'blacktabby': "#83745c",
+            'blacktabbypoint': "#9c8a6f",
+            'blackpoint': "#3f342b",
+            'blackdilute': "#929292",
+            'blackdilutetabby': "#b3b1ac",
+            'blackdilutetabbypoint': "#b3b1ac",
+            'blackdilutepoint': "#929292",
+            'red': "#a75a13",
+            'redtabby': "#cb8e55",
+            'redtabbypoint': "#cb8e55",
+            'redpoint': "#a75a13",
+            'reddilute': "#cda284",
+            'reddilutetabby': "#e0bfa4",
+            'reddilutetabbypoint': "#e0bfa4",
+            'reddilutepoint': "#cda284",
+            'blue': "#46a2cc",
+            'yellow': "#dfb305"
+        };
+        var spriteSheet;
+        var canvas = Snap("#tortieBlack");
+
+        function Cat(genotype) {
+            this.genotype = genotype;
+            this.dilute = countSetBits(genotype & 3);
+            this.tabby = countSetBits((genotype >> 2) & 3);
+            this.red = countSetBits((genotype >> 4) & 3);
+            this.white = countSetBits((genotype >> 6) & 3);
+            this.point = countSetBits((genotype >> 8) & 3);
+            this.muzzleLength = countSetBits((genotype >> 10) & 0xF);
+            this.eyeShape = countSetBits((genotype >> 14) & 0xF);
+            this.headShape = countSetBits((genotype >> 18) & 0xF);
+            this.earAngle = countSetBits((genotype >> 22) & 0xF);
+            this.constructHead();
+
+            return this;
+        }
+
+        Cat.prototype.selectElements = function () {
+            this.earEl = spriteSheet.select('.ears' + (this.earAngle + 1)).clone();
+            this.headEl = spriteSheet.select('.head' + (this.headShape + 1)).clone();
+            this.eyeEl = spriteSheet.select('.eyes' + (this.eyeShape + 1)).clone();
+            this.lineEl = spriteSheet.select('.lines' + (this.headShape + 1)).clone();
+            this.muzzleEl = spriteSheet.select('.muzzle' + (this.muzzleLength + 1)).clone();
+            this.pointEl = spriteSheet.select('.point').clone();
+            this.tabbyEl = spriteSheet.select('.tabby').clone();
+            this.tortieEl = spriteSheet.select('.tortie').clone();
+            this.torbieEl = spriteSheet.select('.torbie').clone();
+            this.whiteEl = spriteSheet.select((this.white === 2) ? '.highwhite' : '.lowwhite').clone();
+            this.markingEl = canvas.g();
+            this.whiteMarkingEl = canvas.g();
+            this.headMask = canvas.g();
+            this.whiteMask = canvas.g(this.lineEl.clone().attr({'fill': '#fff'}));
+            this.tortieMask = canvas.g(this.tortieEl.clone().attr({'fill': '#fff'}));
+            this.eyeMask = canvas.g(this.eyeEl.select('.iris').clone().attr({'fill': "#fff"}));
+
+            if (this.point === 2) {
+                this.headMask.add(this.pointEl.clone().attr({'fill': '#fff'}));
+                this.markingEl.add(this.pointEl);
+            }
+            else {
+                this.headMask.add(this.lineEl.clone().attr({'fill': '#fff'}));
+            }
+            if (this.tabby > 0) {
+                this.markingEl.add(this.tabbyEl);
+            }
+            if (this.red === 1) {
+                this.markingEl.add(this.tortieEl);
+                if (this.tabby > 0) {
+                    this.markingEl.add(this.torbieEl);
+                }
+            }
+            if (this.white > 0) {
+                this.whiteMarkingEl.add(this.whiteEl);
+            }
+
+            this.colorElements();
+        };
+
+        Cat.prototype.colorElements = function () {
+            //must be called first for the colors to apply
+            this.parseColors();
+
+            fill(this.earEl.select(".left"), palette[this.baseColor]);
+            fill(this.earEl.select(".right"), palette[this.rightEarColor]);
+            fill(this.headEl, palette[this.headColor]);
+            fill(this.pointEl, palette[this.baseColor]);
+            fill(this.tabbyEl, palette[this.stripeColor]);
+            fill(this.tortieEl, palette[this.redColor]);
+            fill(this.torbieEl, palette[this.torbieColor]);
+            fill(this.whiteEl, palette["white"]);
+            fill(this.eyeEl.select(".iris"), palette[this.eyeColor]);
+            fill(this.muzzleEl.select(".lips"), palette[this.muzzleColor]);
+            fill(this.muzzleEl.select(".jaw"), palette[this.jawColor]);
+        };
+
+        Cat.prototype.parseColors = function () {
+            this.baseColor = "black";
+
+            if (this.red === 2) {
+                this.baseColor = "red";
+            }
+            if (this.dilute === 2) {
+                this.baseColor += "dilute";
+            }
+            if (this.tabby > 0) {
+                this.baseColor += "tabby";
+            }
+            if (this.point === 2) {
+                this.baseColor += "point";
+            }
+
+            this.stripeColor = this.baseColor.replace("tabby", "");
+            this.redColor = this.baseColor.replace("black", "red");
+            this.torbieColor = this.redColor.replace("tabby", "");
+            this.muzzleColor = this.baseColor;
+            this.jawColor = this.baseColor;
+            this.rightEarColor = this.baseColor;
+
+            if (this.red === 1) {
+                this.jawColor = this.redColor;
+                this.rightEarColor = this.redColor;
+            }
+
+            if (this.point === 2) {
+                this.headColor = "point";
+            }
+            else {
+                this.headColor = this.baseColor;
+            }
+
+            if (this.white > 0) {
+                this.muzzleColor = "white";
+                this.jawColor = "white";
+            }
+
+            if ((this.point === 2) || (this.white === 2)) {
+                this.eyeColor = "blue";
+            }
+            else {
+                this.eyeColor = "yellow";
+            }
+        };
+
+        Cat.prototype.maskElements = function () {
+            this.markingEl.attr({'mask': this.headMask});
+            this.whiteMarkingEl.attr({'mask': this.whiteMask});
+            this.torbieEl.attr({'mask': this.tortieMask});
+            this.eyeEl.select(".inner").attr({'mask': this.eyeMask});
+        };
+
+        Cat.prototype.constructHead = function () {
+            this.svg = canvas.g().attr({'class': "cat-head", 'data-genotype': this.genotype})
+            this.selectElements();
+
+            this.svg.append(this.earEl);
+            this.svg.append(this.headEl);
+            this.svg.append(this.markingEl);
+            this.svg.append(this.whiteMarkingEl);
+            this.svg.append(this.eyeEl);
+            this.svg.append(this.lineEl);
+            this.svg.append(this.muzzleEl);
+
+            this.maskElements();
+        };
+
+        function fill(el, fill) {
+            el.attr({'fill': fill});
+        }
+
+        function countSetBits(n) {
+            var count = 0;
+
+            while (n) {
+                count++;
+                n &= (n - 1);
+            }
+
+            return count;
+        }
+
+        Snap.load("spritesheet clean.svg", function (loadedFragment) {
+            spriteSheet = loadedFragment;
+
+            Snap("#tortieBlack").append(new Cat(0b01010101010101010000000000).svg);
+            Snap("#tortieGray").append(new Cat(0b01010101010101010000000011).svg);
+            Snap("#tortie").append(new Cat(0b01010101010101010000100000).svg);
+            Snap("#tortieDilute").append(new Cat(0b01010101010101010000100011).svg);
+            Snap("#tortieRed").append(new Cat(0b01010101010101010000110000).svg);
+            Snap("#tortieCream").append(new Cat(0b01010101010101010000110011).svg);
+
+            Snap("#diluteBlack").append(new Cat(0b01010101010101010000000000).svg);
+            Snap("#diluteRed").append(new Cat(0b01010101010101010000110000).svg);
+            Snap("#diluteTortie").append(new Cat(0b01010101010101010000100000).svg);
+            Snap("#diluteGray").append(new Cat(0b01010101010101010000000011).svg);
+            Snap("#diluteCream").append(new Cat(0b01010101010101010000110011).svg);
+            Snap("#diluteBlueCream").append(new Cat(0b01010101010101010000100011).svg);
+
+            Snap("#tabbyBlack").append(new Cat(0b01010101010101010000000000).svg);
+            Snap("#tabbyRed").append(new Cat(0b01010101010101010000110000).svg);
+            Snap("#tabbyTortie").append(new Cat(0b01010101010101010000100000).svg);
+            Snap("#tabby").append(new Cat(0b01010101010101010000001100).svg);
+            Snap("#tabbyGinger").append(new Cat(0b01010101010101010000111100).svg);
+            Snap("#tabbyTorbie").append(new Cat(0b01010101010101010000101100).svg);
+
+            Snap("#pointBlack").append(new Cat(0b01010101010101010000000000).svg);
+            Snap("#pointTortie").append(new Cat(0b01010101010101010000100000).svg);
+            Snap("#pointTabby").append(new Cat(0b01010101010101010000001100).svg);
+            Snap("#point").append(new Cat(0b01010101010101011100000000).svg);
+            Snap("#pointRed").append(new Cat(0b01010101010101011100100000).svg);
+            Snap("#pointLynx").append(new Cat(0b01010101010101011100001100).svg);
+
+            Snap("#whiteBlack").append(new Cat(0b01010101010101010000000000).svg);
+            Snap("#whitePoint").append(new Cat(0b01010101010101011100000000).svg);
+            Snap("#tuxBlack").append(new Cat(0b01010101010101010001000000).svg);
+            Snap("#tuxPoint").append(new Cat(0b01010101010101011101000000).svg);
+            Snap("#vanBlack").append(new Cat(0b01010101010101010011000000).svg);
+            Snap("#vanPoint").append(new Cat(0b01010101010101011111000000).svg);
+
+
+        });
+    })();
+</script>
 </body>
 </html>
