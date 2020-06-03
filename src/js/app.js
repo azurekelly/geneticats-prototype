@@ -1,65 +1,17 @@
 /*global Snap, $*/
 import './spritesheet clean.svg';
 import Cat from './Cat';
-import {randomBetween} from './utils';
+import {breed, randomGenotype} from './breeding';
+import {newGoal, checkGoal} from './goal';
 
 let spriteSheet;
-const genomeLength = 13;
 const canvas = Snap('#canvas');
 const viewBox = '0 0 389 306';
-
-function randomGenotype() {
-    let genotype = 0;
-    const genes = [0, 0, 1, 2, 3];
-    for(let i = 0; i < 13; i++) {
-        genotype <<= 2;
-        genotype |= genes[randomBetween(0, 5)];
-    }
-
-    return genotype;
-}
-
-function breed(momGenes, dadGenes) {
-    const momChromosome = randomChromosome(momGenes, genomeLength);
-    const dadChromosome = randomChromosome(dadGenes, genomeLength) << 1;
-    return momChromosome | dadChromosome;
-}
-
-//Currently unnecessary, but will become increasingly more useful as gene bit lengths increase
-function pickRandomGene() {
-    return randomBetween(1, 2);
-}
-
-function randomChromosome(genotype, genomeLength) {
-    let result = 0;
-    for(let i = 0; i < genomeLength; i++) {
-        const shift = i * 2;
-        const mask = pickRandomGene();
-        let gene;
-
-        //shift genotype to remove already processed genes and ensure the last 2 bits are always the gene that's being chosen for
-        if(i > 0) {
-            genotype = genotype >>> 2;
-        }
-
-        gene = genotype & mask;
-
-        if(mask === 2) {
-            gene = gene >>> 1;
-        }
-
-        gene = gene << shift;
-
-        result = result | gene;
-    }
-    return result;
-}
-
 
 Snap.load('spritesheet clean.svg', function(loadedFragment) {
     canvas.attr({'viewBox': viewBox});
     spriteSheet = loadedFragment;
-    newGoal();
+    newGoal(spriteSheet, canvas);
     $('#storage-screen').hide();
 
     const $doc = $(document);
@@ -287,43 +239,3 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
         $this.remove();
     });
 });
-
-function checkGoal(svg) {
-    let matches = false;
-    const goalCat = Snap('#goal');
-
-    if((svg.select('.tabby') !== null && goalCat.select('.tabby') !== null) ||
-            (svg.select('.tabby') === null && goalCat.select('.tabby') === null)) {
-        if((svg.select('.tortie') !== null && goalCat.select('.tortie') !== null) ||
-                (svg.select('.tortie') === null && goalCat.select('.tortie') === null)) {
-            if((svg.select('.point') !== null && goalCat.select('.point') !== null) ||
-                    (svg.select('.point') === null && goalCat.select('.point') === null)) {
-                if((svg.select('.lowwhite') !== null && goalCat.select('.lowwhite') !== null) ||
-                        (svg.select('.lowwhite') === null && goalCat.select('.lowwhite') === null)) {
-                    if((svg.select('.highwhite') !== null && goalCat.select('.highwhite') !== null) ||
-                            (svg.select('.highwhite') === null && goalCat.select('.highwhite') === null)) {
-                        const earMatch = svg.select('.ears').attr('class') === goalCat.select('.ears').attr('class');
-                        const headMatch = svg.select('.head').attr('class') === goalCat.select('.head').attr('class');
-                        const muzzleMatch = svg.select('.muzzle').attr('class') === goalCat.select('.muzzle').attr('class');
-                        const eyeMatch = svg.select('.eyes').attr('class') === goalCat.select('.eyes').attr('class');
-
-                        matches = earMatch && headMatch && muzzleMatch && eyeMatch;
-                    }
-                }
-            }
-        }
-    }
-
-    if(matches) {
-        const $score = $('#score');
-        $score.text(parseInt($score.text()) + 50);
-        newGoal();
-        alert('You obtained the goal cat! A new goal has been added.');
-    }
-}
-
-function newGoal() {
-    const snap = Snap('#goal-cat');
-    snap.clear();
-    snap.append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
-}
