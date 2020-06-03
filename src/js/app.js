@@ -1,5 +1,5 @@
 /*global Snap, $*/
-import './spritesheet clean.svg';
+import '../spritesheet clean.svg';
 import Cat from './Cat';
 import {breed, randomGenotype} from './breeding';
 import {newGoal, checkGoal} from './goal';
