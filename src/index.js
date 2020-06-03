@@ -1,5 +1,5 @@
 /*
     The main imports file
 */
-import './app.js';
+import './js/app.js';
 import './style.css';
