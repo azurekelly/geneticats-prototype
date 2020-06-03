@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Geneticats prototype</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,700,800" rel="stylesheet">
+    <!-- <link rel="stylesheet" type="text/css" href="prototype.css"> -->
+    <script src="snap.svg-min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<div id="game-container">
+    <div id="cattery-header" class="header"><span>YOUR CATS</span></div>
+    <div id="cattery">
+    </div>
+    <div id="goal-header" class="header"><span>GOAL</span><span id="score">0</span></div>
+    <div id="goal">
+        <svg id="goal-cat" class="cat" height="200" width="250" viewBox="0 0 389 306"></svg>
+    </div>
+    <div id="main">
+        <!--<div id="back-btn"><span>◄</span></div>-->
+
+        <div id="home-screen">
+            <div id="breed-btn" class="big-btn"><span>Breed</span></div>
+            <div id="adopt-btn" class="big-btn"><span>Adopt</span></div>
+            <div id="storage-btn" class="big-btn"><span>Storage</span></div>
+        </div>
+
+        <div id="storage-screen"></div>
+
+        <!--<div id="breed-screen">-->
+            <!--<div id="parents">-->
+                <!--<div class="cat-container">-->
+                <!--</div>-->
+                <!--<div id="breed-confirm" class="big-btn"><span>Breed</span></div>-->
+                <!--<div class="cat-container"></div>-->
+                <!--<div id="select-1" class="small-btn"><span>Select</span></div>-->
+                <!--<div id="select-2" class="small-btn"><span>Select</span></div>-->
+            <!--</div>-->
+            <!--<div id="offspring">-->
+                <!--<div class="cat-container"></div>-->
+                <!--<div class="cat-container"></div>-->
+                <!--<div class="cat-container"></div>-->
+                <!--<div class="small-btn keep-confirm"><span>Keep</span></div>-->
+                <!--<div class="small-btn keep-confirm"><span>Keep</span></div>-->
+                <!--<div class="small-btn keep-confirm"><span>Keep</span></div>-->
+            <!--</div>-->
+        <!--</div>-->
+
+        <!--<div id="adopt-screen">-->
+        <!--<div class="cat-container"></div>-->
+        <!--<div class="cat-container"></div>-->
+        <!--<div class="cat-container"></div>-->
+        <!--<div class="small-btn"><span>Adopt</span></div>-->
+        <!--<div class="small-btn"><span>Adopt</span></div>-->
+        <!--<div class="small-btn"><span>Adopt</span></div>-->
+        <!--</div>-->
+    </div>
+</div>
+<svg id="canvas" height="0" width="0" style="position: fixed; z-index: -999999"></svg>
+<!-- <script src="prototype.js"></script> -->
+</body>
+</html>

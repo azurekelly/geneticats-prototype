@@ -1,0 +1,30 @@
+{
+  "name": "geneticats-prototype",
+  "version": "1.0.0",
+  "description": "Geneticats Prototype",
+  "main": "breedingTest.js",
+  "scripts": {
+    "start": "webpack-dev-server --open",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.10.2",
+    "@babel/preset-env": "^7.10.2",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^6.0.1",
+    "css-loader": "^3.5.3",
+    "eslint": "^7.1.0",
+    "eslint-config-personal": "github:paleh/eslint-config-personal",
+    "file-loader": "^6.0.0",
+    "html-loader": "^1.1.0",
+    "html-webpack-plugin": "^4.3.0",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {}
+}
