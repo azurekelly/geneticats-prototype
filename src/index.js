@@ -1,5 +1,5 @@
 import './spritesheet clean.svg';
-import './prototype.css';
+import './style.css';
 
 ;(function() {
     console.log('js loaded');
