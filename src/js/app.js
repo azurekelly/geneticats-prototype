@@ -7,6 +7,7 @@ import BigButton from './components/BigButton';
 import Cat from './Cat';
 import {breed, randomGenotype} from './breeding';
 import {newGoal, checkGoal} from './goal';
+import BackButton from './components/BackButton';
 
 let spriteSheet;
 const canvas = Snap('#canvas');
@@ -21,19 +22,6 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
     const $doc = $(document);
 
     renderHomeScreen();
-
-    $doc.on('click', '#back-btn', function() {
-        $('.cat.disabled').removeClass('disabled');
-        $('.selected').removeClass('selected');
-        $('#storage-screen').hide();
-        const $main = $('#main');
-        const $home = $('<div></div>').attr('id', 'home-screen');
-
-        $('#breed-screen, #adopt-screen, #back-btn').remove();
-        $('#storage-screen').hide();
-        $main.append($home);
-        renderHomeScreen();
-    });
 
     $doc.on('click', '#adopt-screen #refresh-btn', function() {
         const $svgBase = $("<svg class='cat' height='200' width='250'></svg>").attr('viewBox', viewBox);
@@ -174,6 +162,15 @@ function renderHomeScreen() {
     );
 }
 
+function renderBack() {
+    console.log('rendering back button');
+    ReactDOM.render(<><BackButton onClick={backOnClick} /></>, document.getElementById('back-btn-container'));
+}
+
+function removeBack() {
+    ReactDOM.unmountComponentAtNode(document.getElementById('back-btn-container'));
+}
+
 function breedOnClick() {
     const $main = $('#main');
     const $breed = $('<div></div>').attr('id', 'breed-screen');
@@ -183,7 +180,7 @@ function breedOnClick() {
     const $svgBase = $("<svg class='cat' height='200' width='250'></svg>").attr('viewBox', viewBox);
     const $bigBtn = $('<div></div>').attr({'id': 'breed-confirm', 'class': 'big-btn disabled'}).html('<span>Breed</span>');
 
-    $breed.append($('<div></div>').attr('id', 'back-btn').html('<span>◄</span>'));
+    renderBack();
 
     $breed.append(
         $("<div id='parents'></div>")
@@ -214,7 +211,7 @@ function breedOnClick() {
 }
 
 function storageOnClick() {
-    $('#main').append($('<div></div>').attr('id', 'back-btn').html('<span>◄</span>'));
+    renderBack();
     $('#home-screen').remove();
     $('#storage-screen').show();
 }
@@ -226,7 +223,7 @@ function adoptOnClick() {
     const $btnBase = $('<div></div>').attr('class', 'small-btn adopt-confirm').html('<span>Adopt</span>');
     const $svgBase = $("<svg class='cat' height='200' width='250'></svg>").attr('viewBox', viewBox);
 
-    $adopt.append($('<div></div>').attr('id', 'back-btn').html('<span>◄</span>'));
+    renderBack();
     $adopt.append($('<div></div>').attr('id', 'refresh-btn').html('<span>🗘</span>'));
     $adopt.append(
         $containerBase.clone()
@@ -253,4 +250,17 @@ function adoptOnClick() {
     Snap('#adopt1').append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
     Snap('#adopt2').append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
     Snap('#adopt3').append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
+}
+
+function backOnClick() {
+    $('.cat.disabled').removeClass('disabled');
+    $('.selected').removeClass('selected');
+    $('#storage-screen').hide();
+    const $main = $('#main');
+    const $home = $('<div></div>').attr('id', 'home-screen');
+
+    $('#breed-screen, #adopt-screen').remove();
+    removeBack();
+    $main.append($home);
+    renderHomeScreen();
 }
