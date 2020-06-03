@@ -4,5 +4,10 @@
         "es6": true,
         "jest": true
     },
-    "extends": "personal"
+    "extends": "personal",
+    "rules": {
+        "no-undef": [
+            "warn"
+        ]
+    }
 }
