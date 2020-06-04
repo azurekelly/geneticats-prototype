@@ -5,7 +5,7 @@ import {genotypeToPhenotype} from '../../genetics';
 
 const Cat = ({genotype}) => {
     const phenotype = genotypeToPhenotype(genotype);
-    return <CatSVG phenotype={phenotype} {...phenotype} />;
+    return <CatSVG phenotype={phenotype} genotype={genotype} {...phenotype} />;
 };
 
 export function renderCat(genotype, container) {

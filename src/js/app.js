@@ -6,6 +6,8 @@ import {breed, randomGenotype} from './breeding';
 import {newGoal, checkGoal} from './goal';
 import {renderHome} from './components/Home';
 import {renderGoal} from './components/GoalHeader';
+import {addCat, catteryList} from './catList';
+import {renderCattery} from './components/Cattery';
 
 let spriteSheet;
 const canvas = Snap('#canvas');
@@ -46,9 +48,12 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
 
             $this.addClass('disabled');
             $catContainer.html('');
-            $('#cattery').prepend($targetSvg);
-            const svg = Snap($targetSvg.get(0));
-            svg.append(new Cat(targetGenotype, spriteSheet, canvas).svg);
+            // $('#cattery').prepend($targetSvg);
+            // const svg = Snap($targetSvg.get(0));
+            // svg.append(new Cat(targetGenotype, spriteSheet, canvas).svg);
+            addCat(targetGenotype);
+            renderCattery(catteryList);
+
             checkGoal(targetGenotype);
         }
     });
@@ -76,6 +81,7 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
             $('#cattery').prepend($targetSvg);
             const svg = Snap($targetSvg.get(0));
             svg.append(new Cat(targetGenotype, spriteSheet, canvas).svg);
+            addCat(targetGenotype);
             checkGoal(targetGenotype);
         }
     });
