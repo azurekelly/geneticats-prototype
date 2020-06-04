@@ -54,7 +54,7 @@ export function phenotypeToColors(phenotype) {
     return colors;
 }
 
-export function comparePhenotypes(phenotype1, phenotype2) {
+export function phenotypesMatch(phenotype1, phenotype2) {
     for(const gene in phenotype1) {
         if(phenotype1[gene] !== phenotype2[gene]) return false;
     }
