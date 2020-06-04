@@ -1,3 +1,4 @@
+import uniqid from 'uniqid';
 import {randomGenotype} from './breeding';
 import {genotypeToPhenotype, phenotypesMatch} from './genetics';
 import {renderGoal} from './components/GoalHeader';
@@ -20,5 +21,5 @@ export function checkGoal(newGenotype) {
 
 export function newGoal() {
     goal = randomGenotype();
-    renderCat(goal, document.getElementById('goal'));
+    renderCat(uniqid(), goal, document.getElementById('goal'));
 }

@@ -4,7 +4,7 @@ import Cat from './Cat/Cat';
 
 const Cattery = ({catList}) => (
     <>
-        {catList.map(genotype => <Cat genotype={genotype}/>)}
+        {catList.map(({id, genotype}) => <Cat id={id} genotype={genotype}/>)}
     </>
 );
 

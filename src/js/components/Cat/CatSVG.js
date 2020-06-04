@@ -1,5 +1,4 @@
 import React from 'react';
-import uniqid from 'uniqid';
 import Ears from './pieces/Ears';
 import Head from './pieces/Head';
 import Muzzle from './pieces/Muzzle';
@@ -11,9 +10,9 @@ import White from './markings/White';
 import SVGDefs from './SVGDefs';
 import {phenotypeToColors} from '../../genetics';
 
-const CatSVG = ({genotype, phenotype, headSize, eyeShape, earSet, muzzleLength, red, dilute, tabby, point, white}) => {
-    const id = uniqid(); // TODO move to constructor. Cats shouldn't re-render often enough to cause a performance issue, so this is very low priority
+const CatSVG = ({id, genotype, phenotype}) => {
     const colors = phenotypeToColors(phenotype);
+    const {headSize, eyeShape, earSet, muzzleLength, red, tabby, point, white} = phenotype;
 
     return (
         <svg xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' width={389} height={306} viewBox='0 0 389 306' className='cat'>

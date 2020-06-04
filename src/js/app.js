@@ -1,6 +1,7 @@
 /*global Snap, $*/
 import '../spritesheet clean.svg';
 
+import uniqid from 'uniqid';
 import Cat from './Cat';
 import {breed, randomGenotype} from './breeding';
 import {newGoal, checkGoal} from './goal';
@@ -51,7 +52,7 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
             // $('#cattery').prepend($targetSvg);
             // const svg = Snap($targetSvg.get(0));
             // svg.append(new Cat(targetGenotype, spriteSheet, canvas).svg);
-            addCat(targetGenotype);
+            addCat(uniqid(), targetGenotype);
             renderCattery(catteryList);
 
             checkGoal(targetGenotype);
@@ -81,7 +82,7 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
             $('#cattery').prepend($targetSvg);
             const svg = Snap($targetSvg.get(0));
             svg.append(new Cat(targetGenotype, spriteSheet, canvas).svg);
-            addCat(targetGenotype);
+            addCat(uniqid(), targetGenotype);
             checkGoal(targetGenotype);
         }
     });

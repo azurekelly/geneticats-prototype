@@ -1,6 +1,6 @@
 export const catteryList = [];
 
-export function addCat(genotype) {
-    catteryList.push(genotype);
+export function addCat(id, genotype) {
+    catteryList.push({id, genotype});
     console.log(catteryList);
 }
