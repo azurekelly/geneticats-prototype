@@ -7,8 +7,9 @@ import {breed, randomGenotype} from './breeding';
 import {newGoal, checkGoal} from './goal';
 import {renderHome} from './components/Home';
 import {renderGoal} from './components/GoalHeader';
-import {addCat, catteryList} from './catList';
+import {addCat, catteryList, despositToStorage, withdrawFromStorage, storageList} from './catList';
 import {renderCattery} from './components/Cattery';
+import {renderStorage} from './components/Storage';
 
 let spriteSheet;
 const canvas = Snap('#canvas');
@@ -138,10 +139,14 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
             const $targetSvg = $("<svg class='cat' height='200' width='250'></svg>").attr('viewBox', viewBox);
             const $originalSvg = Snap($this.get(0));
             const movedGenotype = $originalSvg.select('.cat-head').attr('data-genotype');
+            const movedId = $originalSvg.select('.cat-head').attr('id');
 
-            $('#storage-screen').prepend($targetSvg);
-            Snap($targetSvg.get(0)).append(new Cat(movedGenotype, spriteSheet, canvas).svg);
-            $this.remove();
+            // $('#storage-screen').prepend($targetSvg);
+            // Snap($targetSvg.get(0)).append(new Cat(movedGenotype, spriteSheet, canvas).svg);
+            // $this.remove();
+            despositToStorage(movedId);
+            renderCattery(catteryList);
+            renderStorage(storageList);
         }
     });
 
@@ -150,9 +155,14 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
         const $targetSvg = $("<svg class='cat' height='200' width='250'></svg>").attr('viewBox', viewBox);
         const $originalSvg = Snap($this.get(0));
         const movedGenotype = $originalSvg.select('.cat-head').attr('data-genotype');
+        const movedId = $originalSvg.select('.cat-head').attr('id');
 
-        $('#cattery').prepend($targetSvg);
-        Snap($targetSvg.get(0)).append(new Cat(movedGenotype, spriteSheet, canvas).svg);
-        $this.remove();
+        // $('#cattery').prepend($targetSvg);
+        // Snap($targetSvg.get(0)).append(new Cat(movedGenotype, spriteSheet, canvas).svg);
+        // $this.remove();
+
+        withdrawFromStorage(movedId);
+        renderCattery(catteryList);
+        renderStorage(storageList);
     });
 });

@@ -21,7 +21,7 @@ const Cat = ({id, genotype}) => {
             <SVGDefs id={id} headSize={headSize} eyeShape={eyeShape} />
 
             {/* this g element is temporary, just used for the remaining jQuery parts of the codebase */}
-            <g className='cat-head' data-genotype={genotype}>
+            <g className='cat-head' id={id} data-genotype={genotype}>
                 <g filter={`url(#head-shadow-${id})`}>
                     <Ears earSet={earSet} rightColor={colors.rightEar} leftColor={colors.leftEar} />
                     <Head headSize={headSize} color={colors.head} />
