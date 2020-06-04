@@ -8,8 +8,7 @@ import {newGoal, checkGoal} from './goal';
 import {renderHome} from './components/Home';
 import {renderGoal} from './components/GoalHeader';
 import {addCat, catteryList, despositToStorage, withdrawFromStorage, storageList} from './catList';
-import {renderCattery} from './components/Cattery';
-import {renderStorage} from './components/Storage';
+import {renderCattery, renderStorage} from './components/CatList';
 
 let spriteSheet;
 const canvas = Snap('#canvas');
@@ -145,8 +144,8 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
             // Snap($targetSvg.get(0)).append(new Cat(movedGenotype, spriteSheet, canvas).svg);
             // $this.remove();
             despositToStorage(movedId);
-            renderCattery(catteryList);
-            renderStorage(storageList);
+            renderCattery();
+            renderStorage();
         }
     });
 
@@ -162,7 +161,7 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
         // $this.remove();
 
         withdrawFromStorage(movedId);
-        renderCattery(catteryList);
-        renderStorage(storageList);
+        renderCattery();
+        renderStorage();
     });
 });
