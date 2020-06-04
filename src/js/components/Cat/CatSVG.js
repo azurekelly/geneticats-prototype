@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import uniqid from 'uniqid';
 import Ears from './pieces/Ears';
 import Head from './pieces/Head';
@@ -43,20 +42,5 @@ const CatSVG = ({genotype, phenotype, headSize, eyeShape, earSet, muzzleLength, 
         </svg>
     );
 };
-
-export function renderCat(container) {
-    const phenotype = {
-        headSize: 2,
-        eyeShape: 2,
-        earSet: 2,
-        muzzleLength: 2,
-        red: 'non-red',
-        dilute: 'non-dilute',
-        tabby: 'non-tabby',
-        point: 'non-point',
-        white: 'non-white'
-    };
-    ReactDOM.render(<CatSVG phenotype={phenotype} {...phenotype} />, container);
-}
 
 export default CatSVG;
