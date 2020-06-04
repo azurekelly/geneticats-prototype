@@ -5,6 +5,7 @@ import Cat from './Cat';
 import {breed, randomGenotype} from './breeding';
 import {newGoal, checkGoal} from './goal';
 import {renderHome} from './components/Home';
+import {renderGoal} from './components/GoalHeader';
 import {renderCat} from './components/Cat/CatSVG';
 
 let spriteSheet;
@@ -21,6 +22,7 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
     const $doc = $(document);
 
     renderHome($, Snap, spriteSheet, canvas, viewBox);
+    renderGoal(0);
 
     $doc.on('click', '#adopt-screen #refresh-btn', function() {
         const $svgBase = $("<svg class='cat' height='200' width='250'></svg>").attr('viewBox', viewBox);

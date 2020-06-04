@@ -1,6 +1,9 @@
 /*global Snap, $*/
 import Cat from './Cat';
 import {randomGenotype} from './breeding';
+import {renderGoal} from './components/GoalHeader';
+
+const score = 0;
 
 export function checkGoal(svg) {
     let matches = false;
@@ -29,9 +32,11 @@ export function checkGoal(svg) {
     }
 
     if(matches) {
-        const $score = $('#score');
-        $score.text(parseInt($score.text()) + 50);
-        newGoal();
+        score += 50;
+        renderGoal(score);
+        // const $score = $('#score');
+        // $score.text(parseInt($score.text()) + 50);
+        newGoal(); // TODO not passing spritesheet or canvas parameters, put this on hold until Cat is converted to React
         alert('You obtained the goal cat! A new goal has been added.');
     }
 }
