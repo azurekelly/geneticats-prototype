@@ -30,7 +30,7 @@ const CatSVG = ({headSize, eyeShape, earSet, muzzleLength}) => {
 
 export function renderCat(container) {
     const phenotype = {
-        headSize: 1,
+        headSize: 2,
         eyeShape: 2,
         earSet: 5,
         muzzleLength: 4
