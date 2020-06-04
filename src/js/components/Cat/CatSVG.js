@@ -8,7 +8,7 @@ import Eyes from './pieces/Eyes';
 const CatSVG = ({headSize, eyeShape, earSet, muzzleLength}) => {
     const genotype = '';
     return (
-        <svg xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' id='spritesheet' width={389} height={306} viewBox='0 0 389 306'>
+        <svg xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' width={389} height={306} viewBox='0 0 389 306'>
             <Ears earSet={earSet} />
             <Head headSize={headSize} />
             {/* <path d='M195.2 106.6c3.6 0 11 1.5 18.9 9 13 12.4 15 32.4 20.3 37.7 8 8.2 36 11.2 36.3 31.4 0 9.2-14.7 35.2-33.1 45.5-20.2 11.3-31.2 15.3-42.4 15.3s-22.2-4-42.4-15.3c-18.3-10.2-33.1-36.2-33.1-45.5.2-20.3 28.2-23.2 36.3-31.4 5.3-5.3 7.3-25.3 20.3-37.7 7.8-7.4 15.4-9 18.9-9z' className='point' id='point' />
