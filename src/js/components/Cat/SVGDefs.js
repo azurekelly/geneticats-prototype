@@ -1,6 +1,8 @@
 import React from 'react';
 import Head from './pieces/Head';
 import OuterEye from './pieces/OuterEye';
+import Point from './markings/Point';
+import Tortie from './markings/Tortie';
 
 const SVGDefs = ({id, headSize, eyeShape}) => (
     <defs>
@@ -19,12 +21,12 @@ const SVGDefs = ({id, headSize, eyeShape}) => (
         <clipPath id={'eyes-' + id}>
             <OuterEye eyeShape={eyeShape} />
         </clipPath>
-        {/* <clipPath id='point'>
+        <clipPath id={'point-' + id}>
             <Point />
         </clipPath>
-        <clipPath id='tortie'>
+        <clipPath id={'tortie-' + id}>
             <Tortie />
-        </clipPath> */}
+        </clipPath>
         <symbol id={'shine-' + id} viewBox='-2.2 -2.2 4.3 4.3'>
             <circle r='2.2' fill='#fff' stroke='none' />
         </symbol>
