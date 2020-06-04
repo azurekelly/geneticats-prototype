@@ -79,10 +79,11 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
             $this.addClass('disabled');
 
             $originalSvg.clear();
-            $('#cattery').prepend($targetSvg);
-            const svg = Snap($targetSvg.get(0));
-            svg.append(new Cat(targetGenotype, spriteSheet, canvas).svg);
+            // $('#cattery').prepend($targetSvg);
+            // const svg = Snap($targetSvg.get(0));
+            // svg.append(new Cat(targetGenotype, spriteSheet, canvas).svg);
             addCat(uniqid(), targetGenotype);
+            renderCattery(catteryList);
             checkGoal(targetGenotype);
         }
     });
