@@ -11,6 +11,6 @@ const CatList = ({cats}) => (
 
 export const renderCattery = () => ReactDOM.render(<CatList cats={catteryList} />, document.getElementById('cattery'));
 
-export const renderStorage = () => ReactDOM.render(<CatList cats={storageList} />, document.getElementById('cattery'));
+export const renderStorage = () => ReactDOM.render(<CatList cats={storageList} />, document.getElementById('storage-screen'));
 
 export default CatList;
