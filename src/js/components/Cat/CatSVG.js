@@ -32,8 +32,8 @@ const CatSVG = ({id, genotype, phenotype}) => {
                         {(red === 'tortie' && tabby == 'tabby') &&
                     <g clipPath={`url(#tortie-${id})`}><Tabby color={colors.tortieStripes} /></g>
                         }
-                        {white !== 'non-white' && <White white={white} color={colors.white} />}
                     </g>
+                    {white !== 'non-white' && <White white={white} color={colors.white} />}
                 </g>
                 <Eyes id={id} eyeShape={eyeShape} color={colors.eyes} />
                 <Muzzle id={id} muzzleLength={muzzleLength} muzzleColor={colors.muzzle} jawColor={colors.jaw} />
