@@ -31,9 +31,9 @@ export function genotypeToPhenotype(genotype) {
 export function phenotypeToColors(phenotype) {
     let base = (phenotype.red === 'red') ? 'red' : 'black';
 
-    if(phenotype.dilute === 'dilute') base += 'dilute';
-    if(phenotype.tabby === 'tabby') base += 'tabby';
-    if(phenotype.point === 'point') base += 'point';
+    if(phenotype.dilute === 'dilute') base += 'Dilute';
+    if(phenotype.tabby === 'tabby') base += 'Tabby';
+    if(phenotype.point === 'point') base += 'Point';
 
     const redBase = base.replace('black', 'red'); // essentially ignored on already red cats
 
@@ -44,9 +44,9 @@ export function phenotypeToColors(phenotype) {
         eyes: (phenotype.white === 'high' || phenotype.point === 'point') ? palette['blue'] : palette['yellow'],
         muzzle: (phenotype.white !== 'non-white') ? palette['white'] : palette[base],
         jaw: (phenotype.white !== 'non-white') ? palette['white'] : ((phenotype.red === 'tortie') ? palette[redBase] : palette[base]),
-        stripes: palette[base.replace('tabby', '')],
+        stripes: palette[base.replace('Tabby', '')],
         tortie: palette[redBase],
-        tortieStripes: palette[redBase.replace('tabby', '')],
+        tortieStripes: palette[redBase.replace('Tabby', '')],
         point: palette[base],
         white: palette['white']
     };
