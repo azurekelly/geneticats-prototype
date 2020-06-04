@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Muzzle = ({muzzleLength, color = 'white'}) => {
+const Muzzle = ({id, muzzleLength, color = '#929292'}) => {
     const muzzleData = [
         'M187.2 233c-11 3.5-22.2 17.9-28.7 19.4-11.2 2.7-21.7-7-18.7-17.4 2.6-8.8 24.2-29.4 30.1-39.4 5.8-9.8 12.2-10.3 17.3-10.5h.1c5.1.2 11.5.8 17.3 10.5 5.9 10 27.5 30.6 30.1 39.4 3 10.3-7.5 20.1-18.7 17.4-6.5-1.5-17.7-15.9-28.8-19.4zm0-17.8v18.4',
         'M157.9 258.9c-10.5-1-19.3-12.1-16.6-22 2.4-8.8 26.2-36 33.5-43.9 5.3-5.6 8.9-6.5 12.4-6.5s7.1.9 12.4 6.5c7.3 7.9 31.1 35 33.5 43.9 2.7 9.9-6.1 21-16.6 22-6.2.6-29.3-18.4-29.3-18.4s-23.1 19-29.3 18.4zm29.3-30.5v12.1',
@@ -28,9 +28,9 @@ const Muzzle = ({muzzleLength, color = 'white'}) => {
 
     return (
         <g transform='translate(8 -22)'>
-            <path fill={color} stroke='#000' strokeMiterlimit={10} d={jawData[muzzleLength]}/>
-            <path fill={color} stroke='#000' strokeMiterlimit={10} d={muzzleData[muzzleLength]}/>
-            <path d={noseData[muzzleLength]}/>
+            <path fill={color} stroke='none' d={jawData[muzzleLength]} filter={`url(#muzzle-shadow-${id})`}/>
+            <path fill={color} stroke='none' d={muzzleData[muzzleLength]} filter={`url(#muzzle-shadow-${id})`}/>
+            <path d={noseData[muzzleLength]} filter={`url(#muzzle-shadow-${id})`}/>
         </g>
     );
 };

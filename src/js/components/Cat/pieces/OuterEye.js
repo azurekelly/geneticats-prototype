@@ -9,7 +9,7 @@ const OuterEye = ({eyeShape, color}) => {
         'M211.4 206.5s-5.5-17.7 10.8-22.4c16.3-4.6 20.4 9.5 20.4 9.5s3.5 13.4-10.5 19.1c-11.6 4.9-20.7-6.2-20.7-6.2zm-48.2.2s5.5-17.7-10.8-22.4c-16.3-4.6-20.4 9.5-20.4 9.5s-3.5 13.4 10.5 19.1c11.6 4.8 20.7-6.2 20.7-6.2z'
     ];
 
-    return <path fill={color} stroke='#000' strokeMiterlimit={10} d={eyeData[eyeShape]} />;
+    return <path fill={color} stroke='none' strokeMiterlimit={10} d={eyeData[eyeShape]} />;
 };
 
 export default OuterEye;

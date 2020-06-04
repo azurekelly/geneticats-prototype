@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Head = ({headSize, color = 'white'}) => {
+const Head = ({headSize, color = '#929292'}) => {
     const pathData = [
         'M194.7 247.4c-32.6 0-71.3-12.4-82.1-49.7a79.4 79.4 0 0 1 24.2-83.1c13.8-13 32.6-26 57.9-26 25.3 0 44 13 57.9 26a79.4 79.4 0 0 1 24.2 83.1c-15.3 37.5-49.5 49.7-82.1 49.7z',
         'M290.3 200.4c6.7-27.3-2.4-58.5-34.4-86.6-14.2-12.5-37.1-25.1-61.2-25.1s-47 12.5-61.2 25.1c-32 28.2-41.1 59.3-34.4 86.6 11.7 47.2 63 51.5 95.6 51.5 32.6 0 83.9-4.2 95.6-51.5z',
@@ -9,7 +9,7 @@ const Head = ({headSize, color = 'white'}) => {
         'M69.9 234.5c-16.7-40.8-1.2-87.4 37.7-117.3a137.8 137.8 0 0 1 87-28.5c14.8 0 50.7.6 87.2 28.5 39 29.9 54.5 76.5 37.7 117.3-24 58.3-117.1 32.1-124.8 32.1-7.7 0-101 26.2-124.8-32.1z'
     ];
 
-    return <path fill={color} stroke='#000' strokeMiterlimit={10} d={pathData[headSize]}/>;
+    return <path fill={color} stroke='none' strokeMiterlimit={10} d={pathData[headSize]}/>;
 };
 
 export default Head;

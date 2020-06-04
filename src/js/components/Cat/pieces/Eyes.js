@@ -1,8 +1,8 @@
 import React from 'react';
 import OuterEye from './OuterEye';
 
-const Eyes = ({id, eyeShape, color = 'white'}) => (
-    <g transform='translate(8 -22)'>
+const Eyes = ({id, eyeShape, color = '#dfb305'}) => (
+    <g transform='translate(8 -22)' filter={`url(#eye-shadow-${id})`}>
         <OuterEye eyeShape={eyeShape} color={color} />
         <g className='inner' clipPath={`url(#eyes-${id})`}>
             <use width='12.3' height='20.3' x='-6.2' y='-10.1' transform='matrix(1 0 0 -1 148 199.4)' xlinkHref={`#pupil-${id}`} />

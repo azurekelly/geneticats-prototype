@@ -4,6 +4,15 @@ import OuterEye from './pieces/OuterEye';
 
 const SVGDefs = ({id, headSize, eyeShape}) => (
     <defs>
+        <filter id={'head-shadow-' + id}>
+            <feDropShadow dx='0.5' dy='3' stdDeviation='1' floodOpacity='0.7' />
+        </filter>
+        <filter id={'eye-shadow-' + id}>
+            <feDropShadow dx='0' dy='2' stdDeviation='1.3' floodOpacity='0.5' />
+        </filter>
+        <filter id={'muzzle-shadow-' + id}>
+            <feDropShadow dx='0.5' dy='2' stdDeviation='1' floodOpacity='0.6' />
+        </filter>
         <clipPath id={'head-' + id}>
             <Head headSize={headSize} />
         </clipPath>
