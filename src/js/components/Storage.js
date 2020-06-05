@@ -1,27 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {useSelector, useDispatch} from 'react-redux';
 import Cat from './Cat/Cat';
-import {renderCattery} from './CatList';
-import {withdrawFromStorage, storageList} from '../catList';
 import BackButton from './BackButton';
+import {withdrawCat} from '../redux/modules/catStore';
+import {changeRoute} from '../redux/modules/route';
 
-const Storage = ({cats, onBackClick}) => (
-    <>
-        <BackButton onClick={() => {
-            ReactDOM.unmountComponentAtNode(document.getElementById('storage-screen'));
-            onBackClick();
-        }} />
-        {cats.map(({id, genotype}) => (
-            <Cat key={id} id={id} genotype={genotype} onClick={() => {
-                withdrawFromStorage(id);
-                renderStorage();
-                renderCattery();
-            }} />))
-        }
-    </>
-);
+const Storage = () => {
+    const cats = useSelector(state => state.catStore.storage);
+    const dispatch = useDispatch();
+    return (
+        <div id='storage-screen'>
+            <BackButton onClick={() => dispatch(changeRoute('home'))} />
+            {cats.map(({id, genotype}) => (
+                <Cat key={id} id={id} genotype={genotype} onClick={() => dispatch(withdrawCat({id, genotype}))} />))
+            }
+        </div>
+    );
+};
 
-export function renderStorage(onBackClick) {
-    ReactDOM.render(<Storage cats={storageList} onBackClick={onBackClick} />, document.getElementById('storage-screen'));
-}
 export default Storage;

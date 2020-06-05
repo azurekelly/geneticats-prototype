@@ -11,7 +11,11 @@ const initialState = {
             {id: uniqid(), genotype: randomGenotype()},
             {id: uniqid(), genotype: randomGenotype()}
         ],
-        storage: []
+        storage: [
+            {id: uniqid(), genotype: randomGenotype()},
+            {id: uniqid(), genotype: randomGenotype()},
+            {id: uniqid(), genotype: randomGenotype()}
+        ]
     }
 };
 

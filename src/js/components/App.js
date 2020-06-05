@@ -31,9 +31,8 @@ const App = () => {
                         <BigButton onClick={() => dispatch(changeRoute('storage'))}>Storage</BigButton>
                     </div>
                 )}
-                {route === 'adopt' && (
-                    <Adopt />
-                )}
+                {route === 'adopt' && <Adopt />}
+                {route === 'storage' && <Storage />}
             </div>
         </>
     );
