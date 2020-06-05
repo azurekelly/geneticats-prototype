@@ -3,34 +3,9 @@ import {useSelector, useDispatch} from 'react-redux';
 import GoalHeader from './GoalHeader';
 import CatList from './CatList';
 import BigButton from './BigButton';
+import Storage from './Storage';
+import Adopt from './Adopt';
 import {changeRoute} from '../redux/modules/route';
-
-// class App extends React.Component {
-//     constructor() {
-//         super();
-//         this.state = {
-//             catteryList: [],
-//             storageList: [],
-//             goalCat: null,
-//             score: 0,
-//             isBreeding: false,
-//             targetBreedingSlot: null,
-//             breedingCats: [{}, {}],
-//             route: 'home'
-//         };
-//     }
-
-//     render() {
-//         return (<>
-//             {/* <Sidebar>
-//                 <Cattery />
-//                 <Goal />
-//             </Sidebar>
-//             <Main>
-//             </Main> */}
-//         </>);
-//     }
-// }
 
 const App = () => {
     const route = useSelector(state => state.route);
@@ -55,6 +30,9 @@ const App = () => {
                         <BigButton onClick={() => dispatch(changeRoute('adopt'))}>Adopt</BigButton>
                         <BigButton onClick={() => dispatch(changeRoute('storage'))}>Storage</BigButton>
                     </div>
+                )}
+                {route === 'adopt' && (
+                    <Adopt />
                 )}
             </div>
         </>

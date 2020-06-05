@@ -1,11 +1,11 @@
 export const changeRoute = route => ({
-    type: 'CHANGE',
+    type: 'CHANGE_ROUTE',
     payload: route
 });
 
 const reducer = (state = 'home', action) => {
     switch(action.type) {
-        case 'CHANGE':
+        case 'CHANGE_ROUTE':
             return action.payload;
         default:
             return state;

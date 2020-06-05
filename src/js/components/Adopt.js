@@ -1,56 +1,41 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React, {useState} from 'react';
+import {useDispatch} from 'react-redux';
 import uniqid from 'uniqid';
 import Cat from './Cat/Cat';
-import {randomGenotype} from '../breeding';
-import {addCat} from '../catList';
-import {renderCattery} from './CatList';
 import BackButton from './BackButton';
+import {adoptCat} from '../redux/modules/catStore';
+import {changeRoute} from '../redux/modules/route';
+import {randomGenotype} from '../breeding';
 
-class Adopt extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-            cats: [
-                {id: uniqid(), genotype: randomGenotype()},
-                {id: uniqid(), genotype: randomGenotype()},
-                {id: uniqid(), genotype: randomGenotype()}
-            ]
-        };
-    }
+const Adopt = () => {
+    const [cats, setCats] = useState(() => [
+        {id: uniqid(), genotype: randomGenotype()},
+        {id: uniqid(), genotype: randomGenotype()},
+        {id: uniqid(), genotype: randomGenotype()}
+    ]);
+    const dispatch = useDispatch();
 
-    refreshCats = () => {
-        this.setState({
-            cats: [
-                {id: uniqid(), genotype: randomGenotype()},
-                {id: uniqid(), genotype: randomGenotype()},
-                {id: uniqid(), genotype: randomGenotype()}
-            ]
-        });
-    }
-
-    adoptCat = cat => {
-        if(cat.id) {
-            addCat(cat.id, cat.genotype);
-            renderCattery();
-            this.setState(prevState => ({cats: prevState.cats.map(x => ((x.id == cat.id) ? {id: '', genotype: ''} : x))}));
+    const onRefresh = () => setCats([
+        {id: uniqid(), genotype: randomGenotype()},
+        {id: uniqid(), genotype: randomGenotype()},
+        {id: uniqid(), genotype: randomGenotype()}
+    ]);
+    const onAdopt = newCat => {
+        if(newCat.id) {
+            setCats(cats.map(cat => ((cat.id == newCat.id) ? {id: null, genotype: null} : cat)));
+            dispatch(adoptCat(newCat));
         }
-    }
+    };
 
-    render() {
-        return (
-            <>
-                <BackButton onClick={() => {
-                    unmountAdopt();
-                    this.props.onBackClick();
-                }} />
-                <div id='refresh-btn' onClick={this.refreshCats}><span>🗘</span></div>
-                {this.state.cats.map(cat => <AdoptSlot id={cat.id} genotype={cat.genotype} />)}
-                {this.state.cats.map(cat => <AdoptButton disabled={!cat.id} onClick={() => this.adoptCat(cat)} />)}
-            </>
-        );
-    }
-}
+    return (
+        <div id='adopt-screen'>
+            <BackButton onClick={() => dispatch(changeRoute('home'))} />
+            <div id='refresh-btn' onClick={onRefresh}><span>🗘</span></div>
+            {cats.map((cat, i) => <AdoptSlot key={'slot' + i} id={cat.id} genotype={cat.genotype} />)}
+            {cats.map((cat, i) => <AdoptButton key={'btn' + i} disabled={!cat.id} onClick={() => onAdopt(cat)} />)}
+        </div>
+    );
+};
 
 const AdoptSlot = ({id, genotype}) => (
     <div className='cat-container'>
@@ -62,12 +47,4 @@ const AdoptButton = ({disabled, onClick}) => (
     <div className={'small-btn adopt-confirm' + (disabled ? ' disabled' : '')} onClick={onClick}><span>Adopt</span></div>
 );
 
-export function renderAdopt(onBackClick) {
-    ReactDOM.render(<Adopt onBackClick={onBackClick} />, document.getElementById('adopt-screen'));
-}
-
-function unmountAdopt() {
-    ReactDOM.unmountComponentAtNode(document.getElementById('adopt-screen'));
-}
-
-export default AdoptSlot;
+export default Adopt;
