@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Cat from './Cat/Cat';
-import {catteryList, storageList} from '../catList';
+import {catteryList} from '../catList';
 
 const CatList = ({cats}) => (
     <>
@@ -10,7 +10,5 @@ const CatList = ({cats}) => (
 );
 
 export const renderCattery = () => ReactDOM.render(<CatList cats={catteryList} />, document.getElementById('cattery'));
-
-export const renderStorage = () => ReactDOM.render(<CatList cats={storageList} />, document.getElementById('storage-screen'));
 
 export default CatList;

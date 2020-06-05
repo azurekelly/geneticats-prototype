@@ -3,12 +3,13 @@ import '../spritesheet clean.svg';
 
 import uniqid from 'uniqid';
 import Cat from './Cat';
-import {breed, randomGenotype} from './breeding';
-import {newGoal, checkGoal} from './goal';
+import {breed} from './breeding';
+import {newGoal} from './goal';
 import {renderHome} from './components/Home';
 import {renderGoal} from './components/GoalHeader';
-import {addCat, despositToStorage, withdrawFromStorage} from './catList';
-import {renderCattery, renderStorage} from './components/CatList';
+import {addCat, despositToStorage} from './catList';
+import {renderCattery} from './components/CatList';
+import {renderStorage} from './components/Storage';
 
 let spriteSheet;
 const canvas = Snap('#canvas');
@@ -104,14 +105,5 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
             renderCattery();
             renderStorage();
         }
-    });
-
-    $doc.on('click', '#storage-screen .cat', function() {
-        const $originalSvg = Snap($(this).get(0));
-        const movedId = $originalSvg.select('.cat-head').attr('id');
-
-        withdrawFromStorage(movedId);
-        renderCattery();
-        renderStorage();
     });
 });

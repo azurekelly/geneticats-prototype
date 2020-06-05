@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import BigButton from './BigButton';
 import {renderBack, backOnClick} from './BackButton';
-import Cat from '../Cat';
-import {randomGenotype} from '../breeding';
 import {renderAdopt} from './Adopt';
+import {renderStorage} from './Storage';
 
 class Home extends React.Component {
     constructor({$, snap, spriteSheet, canvas, viewBox}) {
@@ -58,22 +57,19 @@ class Home extends React.Component {
 
     storageOnClick = () => {
         const {$, snap, spriteSheet, canvas, viewBox} = this.state;
-        renderBack(
-            $,
-            () => renderHome($, snap, spriteSheet, canvas, viewBox)
-        );
         $('#home-screen').remove();
         $('#storage-screen').show();
+        renderStorage(() => backOnClick($, () => renderHome($, snap, spriteSheet, canvas, viewBox)));
     }
 
     adoptOnClick = () => {
-        const {$} = this.state;
+        const {$, snap, spriteSheet, canvas, viewBox} = this.state;
         const $main = $('#main');
         const $adopt = $('<div></div>').attr('id', 'adopt-screen');
         $main.find('#home-screen').remove();
         $main.append($adopt);
 
-        renderAdopt(() => backOnClick($, () => renderHome($, this.state.snap, this.state.spriteSheet, this.state.canvas, this.state.viewBox)));
+        renderAdopt(() => backOnClick($, () => renderHome($, snap, spriteSheet, canvas, viewBox)));
     }
 
     render() {

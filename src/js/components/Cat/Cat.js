@@ -11,13 +11,13 @@ import White from './markings/White';
 import SVGDefs from './SVGDefs';
 import {genotypeToPhenotype, phenotypeToColors} from '../../genetics';
 
-const Cat = ({id, genotype}) => {
+const Cat = ({id, genotype, onClick}) => {
     const phenotype = genotypeToPhenotype(genotype);
     const colors = phenotypeToColors(phenotype);
     const {headSize, eyeShape, earSet, muzzleLength, red, tabby, point, white} = phenotype;
 
     return (
-        <svg xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' width={389} height={306} viewBox='0 0 389 306' className='cat'>
+        <svg xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' width={389} height={306} viewBox='0 0 389 306' className='cat' onClick={onClick}>
             <SVGDefs id={id} headSize={headSize} eyeShape={eyeShape} />
 
             {/* this g element is temporary, just used for the remaining jQuery parts of the codebase */}
