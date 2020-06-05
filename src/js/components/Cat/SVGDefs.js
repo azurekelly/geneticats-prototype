@@ -7,13 +7,13 @@ import Tortie from './markings/Tortie';
 const SVGDefs = ({id, headSize, eyeShape}) => (
     <defs>
         <filter id={'head-shadow-' + id}>
-            <feDropShadow dx='0.5' dy='3' stdDeviation='1' floodOpacity='0.7' />
+            <feDropShadow dx='0.5' dy='3' stdDeviation='2' floodOpacity='0.6' />
         </filter>
         <filter id={'eye-shadow-' + id}>
             <feDropShadow dx='0.5' dy='2' stdDeviation='2' floodOpacity='0.6' />
         </filter>
         <filter id={'muzzle-shadow-' + id}>
-            <feDropShadow dx='1.5' dy='2' stdDeviation='2' floodOpacity='0.7' />
+            <feDropShadow dx='1.5' dy='3.5' stdDeviation='1.5' floodOpacity='0.7' />
         </filter>
         <clipPath id={'head-' + id}>
             <Head headSize={headSize} />
