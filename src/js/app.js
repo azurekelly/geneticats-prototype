@@ -25,36 +25,6 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
     renderHome($, Snap, spriteSheet, canvas, viewBox);
     renderGoal(0);
 
-    $doc.on('click', '#adopt-screen #refresh-btn', function() {
-        const $svgBase = $("<svg class='cat' height='200' width='250'></svg>").attr('viewBox', viewBox);
-
-        $('.adopt-confirm.disabled').removeClass('disabled');
-
-        $('#adopt-screen').find('.cat-container').each(function(i, e) {
-            $(e).html('').append($svgBase.clone().attr('id', 'adopt' + (i + 1)));
-        });
-
-        Snap('#adopt1').append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
-        Snap('#adopt2').append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
-        Snap('#adopt3').append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
-    });
-
-    $doc.on('click', '.adopt-confirm', function() {
-        const $this = $(this);
-        if(!$this.is('.disabled')) {
-            const $catContainer = $(".cat-container[data-id='" + $this.attr('data-id') + "']");
-            const $originalSvg = $catContainer.find('svg');
-            const targetGenotype = Snap($originalSvg.get(0)).select('.cat-head').attr('data-genotype');
-
-            $this.addClass('disabled');
-            $catContainer.html('');
-
-            addCat(uniqid(), targetGenotype);
-            renderCattery();
-            checkGoal(targetGenotype);
-        }
-    });
-
     $doc.on('click', '.select-confirm', function() {
         $('.cat-container.selected').removeClass('selected');
 
@@ -76,7 +46,6 @@ Snap.load('spritesheet clean.svg', function(loadedFragment) {
             $originalSvg.clear();
             addCat(uniqid(), targetGenotype);
             renderCattery();
-            checkGoal(targetGenotype);
         }
     });
 

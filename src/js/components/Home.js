@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import BigButton from './BigButton';
-import {renderBack} from './BackButton';
+import {renderBack, backOnClick} from './BackButton';
 import Cat from '../Cat';
 import {randomGenotype} from '../breeding';
+import {renderAdopt} from './Adopt';
 
 class Home extends React.Component {
     constructor({$, snap, spriteSheet, canvas, viewBox}) {
@@ -66,44 +67,13 @@ class Home extends React.Component {
     }
 
     adoptOnClick = () => {
-        const {$, spriteSheet, canvas, viewBox} = this.state;
-        const Snap = this.state.snap;
+        const {$} = this.state;
         const $main = $('#main');
         const $adopt = $('<div></div>').attr('id', 'adopt-screen');
-        const $containerBase = $('<div></div>').attr('class', 'cat-container');
-        const $btnBase = $('<div></div>').attr('class', 'small-btn adopt-confirm').html('<span>Adopt</span>');
-        const $svgBase = $("<svg class='cat' height='200' width='250'></svg>").attr('viewBox', viewBox);
-
-        renderBack(
-            $,
-            () => renderHome($, Snap, spriteSheet, canvas, viewBox)
-        );
-        $adopt.append($('<div></div>').attr('id', 'refresh-btn').html('<span>🗘</span>'));
-        $adopt.append(
-            $containerBase.clone()
-                .attr('data-id', '1')
-                .append($svgBase.clone().attr('id', 'adopt1'))
-        );
-        $adopt.append(
-            $containerBase.clone()
-                .attr('data-id', '2')
-                .append($svgBase.clone().attr('id', 'adopt2'))
-        );
-        $adopt.append(
-            $containerBase
-                .attr('data-id', '3')
-                .append($svgBase.clone().attr('id', 'adopt3'))
-        );
-        $adopt.append($btnBase.clone().attr('data-id', '1'));
-        $adopt.append($btnBase.clone().attr('data-id', '2'));
-        $adopt.append($btnBase.attr('data-id', '3'));
-
         $main.find('#home-screen').remove();
         $main.append($adopt);
 
-        Snap('#adopt1').append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
-        Snap('#adopt2').append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
-        Snap('#adopt3').append(new Cat(randomGenotype(), spriteSheet, canvas).svg);
+        renderAdopt(() => backOnClick($, () => renderHome($, this.state.snap, this.state.spriteSheet, this.state.canvas, this.state.viewBox)));
     }
 
     render() {

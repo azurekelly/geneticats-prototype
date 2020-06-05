@@ -1,8 +1,11 @@
+import {checkGoal} from './goal';
+
 export let catteryList = [];
 export let storageList = [];
 
 export function addCat(id, genotype) {
     catteryList = [{id, genotype}, ...catteryList];
+    checkGoal(genotype);
 }
 
 export function despositToStorage(id) {
