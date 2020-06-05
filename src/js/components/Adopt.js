@@ -30,9 +30,11 @@ class Adopt extends React.Component {
     }
 
     adoptCat = cat => {
-        addCat(cat.id, cat.genotype);
-        renderCattery();
-        this.setState(prevState => ({cats: prevState.cats.map(x => ((x.id == cat.id) ? {id: '', genotype: ''} : x))}));
+        if(cat.id) {
+            addCat(cat.id, cat.genotype);
+            renderCattery();
+            this.setState(prevState => ({cats: prevState.cats.map(x => ((x.id == cat.id) ? {id: '', genotype: ''} : x))}));
+        }
     }
 
     render() {
@@ -44,7 +46,7 @@ class Adopt extends React.Component {
                 }} />
                 <div id='refresh-btn' onClick={this.refreshCats}><span>🗘</span></div>
                 {this.state.cats.map(cat => <AdoptSlot id={cat.id} genotype={cat.genotype} />)}
-                {this.state.cats.map(cat => <AdoptButton onClick={() => this.adoptCat(cat)} />)}
+                {this.state.cats.map(cat => <AdoptButton disabled={!cat.id} onClick={() => this.adoptCat(cat)} />)}
             </>
         );
     }
@@ -56,15 +58,15 @@ const AdoptSlot = ({id, genotype}) => (
     </div>
 );
 
-const AdoptButton = ({onClick}) => (
-    <div className='small-btn adopt-confirm' onClick={onClick}><span>Adopt</span></div>
+const AdoptButton = ({disabled, onClick}) => (
+    <div className={'small-btn adopt-confirm' + (disabled ? ' disabled' : '')} onClick={onClick}><span>Adopt</span></div>
 );
 
 export function renderAdopt(onBackClick) {
     ReactDOM.render(<Adopt onBackClick={onBackClick} />, document.getElementById('adopt-screen'));
 }
 
-export function unmountAdopt() {
+function unmountAdopt() {
     ReactDOM.unmountComponentAtNode(document.getElementById('adopt-screen'));
 }
 
