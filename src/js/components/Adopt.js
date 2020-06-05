@@ -4,7 +4,6 @@ import uniqid from 'uniqid';
 import Cat from './Cat/Cat';
 import BackButton from './BackButton';
 import {adoptCat} from '../redux/modules/catStore';
-import {changeRoute} from '../redux/modules/route';
 import {randomGenotype} from '../breeding';
 
 const Adopt = () => {
@@ -29,7 +28,7 @@ const Adopt = () => {
 
     return (
         <div id='adopt-screen'>
-            <BackButton onClick={() => dispatch(changeRoute('home'))} />
+            <BackButton />
             <div id='refresh-btn' onClick={onRefresh}><span>🗘</span></div>
             {cats.map((cat, i) => <AdoptSlot key={'slot' + i} id={cat.id} genotype={cat.genotype} />)}
             {cats.map((cat, i) => <AdoptButton key={'btn' + i} disabled={!cat.id} onClick={() => onAdopt(cat)} />)}

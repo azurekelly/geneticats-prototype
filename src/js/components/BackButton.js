@@ -1,30 +1,10 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {useDispatch} from 'react-redux';
+import {changeRoute} from '../redux/modules/route';
 
-const BackButton = ({onClick}) => (
-    <div id='back-btn' onClick={onClick}><span>◄</span></div>
-);
-
-export function renderBack($, renderHome) {
-    console.log('rendering back button');
-    ReactDOM.render(<><BackButton onClick={() => backOnClick($, renderHome)} /></>, document.getElementById('back-btn-container'));
-}
-
-export function backOnClick($, renderHome) {
-    $('.cat.disabled').removeClass('disabled');
-    $('.selected').removeClass('selected');
-    $('#storage-screen').hide();
-    const $main = $('#main');
-    const $home = $('<div></div>').attr('id', 'home-screen');
-
-    $('#breed-screen, #adopt-screen').remove();
-    removeBack();
-    $main.append($home);
-    renderHome();
-}
-
-export function removeBack() {
-    ReactDOM.unmountComponentAtNode(document.getElementById('back-btn-container'));
-}
+const BackButton = () => {
+    const dispatch = useDispatch();
+    return <div id='back-btn' onClick={() => dispatch(changeRoute('home'))}><span>◄</span></div>;
+};
 
 export default BackButton;
