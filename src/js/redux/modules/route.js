@@ -3,6 +3,8 @@ export const changeRoute = route => ({
     payload: route
 });
 
+export const routeSelector = state => state.route;
+
 const reducer = (state = 'home', action) => {
     switch(action.type) {
         case 'CHANGE_ROUTE':

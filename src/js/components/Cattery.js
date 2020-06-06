@@ -1,11 +1,12 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import Cat from './Cat/Cat';
-import {depositCat} from '../redux/modules/catStore';
+import {catterySelector, depositCat} from '../redux/modules/catStore';
+import {routeSelector} from '../redux/modules/route'
 
 const CatList = () => {
-    const cats = useSelector(state => state.catStore.cattery);
-    const route = useSelector(state => state.route);
+    const cats = useSelector(catterySelector);
+    const route = useSelector(routeSelector);
     const dispatch = useDispatch();
 
     const onCatClick = cat => {

@@ -5,16 +5,15 @@ import Cattery from './Cattery';
 import BigButton from './BigButton';
 import Storage from './Storage';
 import Adopt from './Adopt';
-import {changeRoute} from '../redux/modules/route';
+import {changeRoute, routeSelector} from '../redux/modules/route';
 
 const App = () => {
-    const route = useSelector(state => state.route);
-    const catteryCats = useSelector(state => state.catStore.cattery);
+    const route = useSelector(routeSelector);
     const dispatch = useDispatch();
 
     return (
         <>
-            <Cattery cats={catteryCats} />
+            <Cattery />
             <div id='goal-header' className='header'>
                 <GoalHeader score={0} />
             </div>
