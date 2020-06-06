@@ -4,7 +4,7 @@ import OuterEye from './pieces/OuterEye';
 import Point from './markings/Point';
 import Tortie from './markings/Tortie';
 
-const SVGDefs = ({id, headSize, eyeShape}) => (
+const SVGDefs = ({id, headSize, eyeShape, torbie, point}) => (
     <defs>
         <filter id={'head-shadow-' + id}>
             <feDropShadow dx='0.5' dy='3' stdDeviation='2' floodOpacity='0.6' />
@@ -21,12 +21,16 @@ const SVGDefs = ({id, headSize, eyeShape}) => (
         <clipPath id={'eyes-' + id}>
             <OuterEye eyeShape={eyeShape} />
         </clipPath>
-        <clipPath id={'point-' + id}>
-            <Point />
-        </clipPath>
-        <clipPath id={'tortie-' + id}>
-            <Tortie />
-        </clipPath>
+        {point && (
+            <clipPath id={'point-' + id}>
+                <Point />
+            </clipPath>
+        )}
+        {torbie && (
+            <clipPath id={'tortie-' + id}>
+                <Tortie />
+            </clipPath>
+        )}
         <symbol id={'shine-' + id} viewBox='-2.2 -2.2 4.3 4.3'>
             <circle r='2.2' fill='#fff' stroke='none' />
         </symbol>

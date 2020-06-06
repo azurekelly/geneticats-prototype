@@ -18,7 +18,7 @@ const Cat = ({id, genotype, onClick}) => {
 
     return (
         <svg xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' width={389} height={306} viewBox='0 0 389 306' className='cat' onClick={onClick}>
-            <SVGDefs id={id} headSize={headSize} eyeShape={eyeShape} />
+            <SVGDefs id={id} headSize={headSize} eyeShape={eyeShape} torbie={red === 'tortie' && tabby === 'tabby'} point={point === 'point'} />
 
             {/* this g element is temporary, just used for the remaining jQuery parts of the codebase */}
             <g className='cat-head' id={id} data-genotype={genotype}>
