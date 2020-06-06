@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import GoalHeader from './GoalHeader';
-import CatList from './CatList';
+import Cattery from './Cattery';
 import BigButton from './BigButton';
 import Storage from './Storage';
 import Adopt from './Adopt';
@@ -14,10 +14,7 @@ const App = () => {
 
     return (
         <>
-            <div id='cattery-header' className='header'><span>YOUR CATS</span></div>
-            <div id='cattery'>
-                <CatList cats={catteryCats} />
-            </div>
+            <Cattery cats={catteryCats} />
             <div id='goal-header' className='header'>
                 <GoalHeader score={0} />
             </div>
