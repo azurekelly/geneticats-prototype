@@ -16,7 +16,10 @@ const initialState = {
             {id: uniqid(), genotype: randomGenotype()},
             {id: uniqid(), genotype: randomGenotype()}
         ]
-    }
+    },
+    route: 'home',
+    score: 0,
+    goal: {id: uniqid(), genotype: randomGenotype()}
 };
 
 const store = createStore(rootReducer, initialState, devToolsEnhancer());

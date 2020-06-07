@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import GoalHeader from './GoalHeader';
+import Goal from './Goal';
 import Cattery from './Cattery';
 import BigButton from './BigButton';
 import Storage from './Storage';
@@ -14,11 +14,7 @@ const App = () => {
     return (
         <>
             <Cattery />
-            <div id='goal-header' className='header'>
-                <GoalHeader score={0} />
-            </div>
-            <div id='goal'>
-            </div>
+            <Goal />
             <div id='main'>
                 {route === 'home' && (
                     <div id='home-screen'>
