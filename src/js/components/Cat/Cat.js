@@ -19,27 +19,23 @@ const Cat = ({id, genotype, onClick}) => {
     return (
         <svg xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' width={389} height={306} viewBox='0 0 389 306' className='cat' onClick={onClick}>
             <SVGDefs id={id} headSize={headSize} eyeShape={eyeShape} torbie={red === 'tortie' && tabby === 'tabby'} point={point === 'point'} />
-
-            {/* this g element is temporary, just used for the remaining jQuery parts of the codebase */}
-            <g className='cat-head' id={id} data-genotype={genotype}>
-                <g filter={`url(#head-shadow-${id})`}>
-                    <Ears earSet={earSet} rightColor={colors.rightEar} leftColor={colors.leftEar} />
-                    <Head headSize={headSize} color={colors.head} />
-                </g>
-                <g clipPath={`url(#head-${id})`}>
-                    <g clipPath={(point === 'point') ? `url(#point-${id})` : 'none'}>
-                        {point === 'point' && <Point color={colors.point} />}
-                        {tabby === 'tabby' && <Tabby color={colors.stripes} />}
-                        {red === 'tortie' && <Tortie color={colors.tortie} />}
-                        {(red === 'tortie' && tabby == 'tabby') &&
-                    <g clipPath={`url(#tortie-${id})`}><Tabby color={colors.tortieStripes} /></g>
-                        }
-                    </g>
-                    {white !== 'non-white' && <White white={white} color={colors.white} />}
-                </g>
-                <Eyes id={id} eyeShape={eyeShape} color={colors.eyes} />
-                <Muzzle id={id} muzzleLength={muzzleLength} muzzleColor={colors.muzzle} jawColor={colors.jaw} />
+            <g filter={`url(#head-shadow-${id})`}>
+                <Ears earSet={earSet} rightColor={colors.rightEar} leftColor={colors.leftEar} />
+                <Head headSize={headSize} color={colors.head} />
             </g>
+            <g clipPath={`url(#head-${id})`}>
+                <g clipPath={(point === 'point') ? `url(#point-${id})` : 'none'}>
+                    {point === 'point' && <Point color={colors.point} />}
+                    {tabby === 'tabby' && <Tabby color={colors.stripes} />}
+                    {red === 'tortie' && <Tortie color={colors.tortie} />}
+                    {(red === 'tortie' && tabby == 'tabby') &&
+                <g clipPath={`url(#tortie-${id})`}><Tabby color={colors.tortieStripes} /></g>
+                    }
+                </g>
+                {white !== 'non-white' && <White white={white} color={colors.white} />}
+            </g>
+            <Eyes id={id} eyeShape={eyeShape} color={colors.eyes} />
+            <Muzzle id={id} muzzleLength={muzzleLength} muzzleColor={colors.muzzle} jawColor={colors.jaw} />
         </svg>
     );
 };
