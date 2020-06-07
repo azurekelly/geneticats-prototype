@@ -16,7 +16,6 @@
     "@babel/preset-env": "^7.10.2",
     "@babel/preset-react": "^7.10.1",
     "babel-loader": "^8.1.0",
-    "copy-webpack-plugin": "^6.0.1",
     "css-loader": "^3.5.3",
     "eslint": "^7.1.0",
     "eslint-config-personal": "github:paleh/eslint-config-personal",

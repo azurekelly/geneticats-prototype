@@ -1,4 +1,3 @@
-// import './js/app.js';
 import './style.css';
 
 import React from 'react';
