@@ -26,7 +26,7 @@ const Adopt = () => {
     ]);
     const onAdopt = newCat => {
         if(newCat.id) {
-            setCats(cats.map(cat => ((cat.id == newCat.id) ? {id: null, genotype: null} : cat)));
+            setCats(cats.map(cat => ((cat === null || cat.id === newCat.id) ? null : cat)));
             dispatch(adoptCat(newCat));
             if(phenotypesMatch(genotypeToPhenotype(newCat.genotype), genotypeToPhenotype(goalCat.genotype))) {
                 dispatch(completeGoal({id: uniqid(), genotype: randomGenotype()}));
@@ -41,11 +41,11 @@ const Adopt = () => {
             <div id='refresh-btn' onClick={onRefresh}><span>🗘</span></div>
             {cats.map((cat, i) => (
                 <div key={'slot' + i} className='cat-container'>
-                    {cat.id && <Cat id={cat.id} genotype={cat.genotype} />}
+                    {cat && <Cat id={cat.id} genotype={cat.genotype} />}
                 </div>
             ))}
             {cats.map((cat, i) => (
-                <SmallButton key={'btn' + i} className='adopt-confirm' disabled={!cat.id} onClick={() => onAdopt(cat)}>Adopt</SmallButton>
+                <SmallButton key={'btn' + i} className='adopt-confirm' disabled={!cat} onClick={() => onAdopt(cat)}>Adopt</SmallButton>
             ))}
         </div>
     );
