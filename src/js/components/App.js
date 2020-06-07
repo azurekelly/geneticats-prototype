@@ -5,6 +5,7 @@ import Cattery from './Cattery';
 import BigButton from './BigButton';
 import Storage from './Storage';
 import Adopt from './Adopt';
+import Breed from './Breed';
 import {changeRoute, routeSelector} from '../redux/modules/route';
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
                         <BigButton onClick={() => dispatch(changeRoute('storage'))}>Storage</BigButton>
                     </div>
                 )}
+                {route === 'breed' && <Breed />}
                 {route === 'adopt' && <Adopt />}
                 {route === 'storage' && <Storage />}
             </div>

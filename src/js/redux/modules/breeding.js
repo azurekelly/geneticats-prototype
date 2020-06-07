@@ -49,7 +49,7 @@ const targetSlotReducer = (state = null, action) => {
             return state;
     }
 };
-const parentsReducer = (state = [], action) => {
+const parentsReducer = (state = [null, null], action) => {
     switch(action.type) {
         case SELECT:
             return state.map((cat, i) => (i == action.payload.target ? action.payload.cat : cat));
