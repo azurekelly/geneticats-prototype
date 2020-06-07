@@ -14,8 +14,7 @@ const Adopt = () => {
     const [cats, setCats] = useState(() => [
         {id: uniqid(), genotype: randomGenotype()},
         {id: uniqid(), genotype: randomGenotype()},
-        // {id: uniqid(), genotype: randomGenotype()}
-        {id: uniqid(), genotype: goalCat.genotype}
+        {id: uniqid(), genotype: randomGenotype()}
     ]);
     const dispatch = useDispatch();
 
