@@ -54,7 +54,7 @@ const parentsReducer = (state = [null, null], action) => {
         case SELECT:
             return state.map((cat, i) => (i == action.payload.target ? action.payload.cat : cat));
         case CANCEL:
-            return [];
+            return [null, null];
         default:
             return state;
     }

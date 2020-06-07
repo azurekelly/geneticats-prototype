@@ -28,7 +28,7 @@ const CatList = () => {
 
     return (<>
         <div id='cattery-header' className='header'><span>YOUR CATS</span></div>
-        <div id='cattery'>
+        <div id='cattery' className={isSelecting ? 'selected' : ''}>
             {cats.map(({id, genotype}) => <Cat key={id} id={id} genotype={genotype} onClick={() => onCatClick({id, genotype})} />)}
         </div>
     </>);
