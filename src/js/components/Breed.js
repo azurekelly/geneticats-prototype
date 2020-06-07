@@ -3,6 +3,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import uniqid from 'uniqid';
 import Cat from './Cat/Cat';
 import BackButton from './BackButton';
+import SmallButton from './SmallButton';
+import BigButton from './BigButton';
 import {startSelectingParent, breedingParentsSelector, targetParentSlotSelector} from '../redux/modules/breeding';
 import {adoptCat} from '../redux/modules/catStore';
 import {goalSelector, completeGoal} from '../redux/modules/goal';
@@ -18,13 +20,11 @@ const Breed = () => {
     const dispatch = useDispatch();
 
     const onBreed = () => {
-        if(parents[0] && parents[1]) {
-            setChildren([
-                {id: uniqid(), genotype: breed(parents[0].genotype, parents[1].genotype)},
-                {id: uniqid(), genotype: breed(parents[0].genotype, parents[1].genotype)},
-                {id: uniqid(), genotype: breed(parents[0].genotype, parents[1].genotype)}
-            ]);
-        }
+        setChildren([
+            {id: uniqid(), genotype: breed(parents[0].genotype, parents[1].genotype)},
+            {id: uniqid(), genotype: breed(parents[0].genotype, parents[1].genotype)},
+            {id: uniqid(), genotype: breed(parents[0].genotype, parents[1].genotype)}
+        ]);
     };
     const onKeep = newCat => {
         if(newCat) {
@@ -43,20 +43,18 @@ const Breed = () => {
                 <BackButton />
                 <div id='parents'>
                     <Parent parent={parents[0]} selected={targetSlot === 0} />
-                    <div id='breed-confirm' className={'big-btn' + (!(parents[0] && parents[1]) ? ' disabled' : '')} onClick={onBreed}>
-                        <span>Breed</span>
-                    </div>
+                    <BigButton id='breed-confirm' disabled={!(parents[0] && parents[1])} onClick={onBreed}>Breed</BigButton>
                     <Parent parent={parents[1]} selected={targetSlot === 1} />
-                    <div id='select-1' className='small-btn' onClick={() => dispatch(startSelectingParent(0))}><span>Select</span></div>
-                    <div id='select-2' className='small-btn' onClick={() => dispatch(startSelectingParent(1))}><span>Select</span></div>
+                    <SmallButton id='select-1' onClick={() => dispatch(startSelectingParent(0))}>Select</SmallButton>
+                    <SmallButton id='select-2' onClick={() => dispatch(startSelectingParent(1))}>Select</SmallButton>
                 </div>
                 <div id='offspring'>
                     <Offspring child={children[0]} />
                     <Offspring child={children[1]} />
                     <Offspring child={children[2]} />
-                    <div className={'small-btn keep-confirm' + (children[0] ? '' : ' disabled')} onClick={() => onKeep(children[0])}><span>Keep</span></div>
-                    <div className={'small-btn keep-confirm' + (children[1] ? '' : ' disabled')} onClick={() => onKeep(children[1])}><span>Keep</span></div>
-                    <div className={'small-btn keep-confirm' + (children[2] ? '' : ' disabled')} onClick={() => onKeep(children[2])}><span>Keep</span></div>
+                    <SmallButton disabled={!children[0]} onClick={() => onKeep(children[0])}>Keep</SmallButton>
+                    <SmallButton disabled={!children[1]} onClick={() => onKeep(children[1])}>Keep</SmallButton>
+                    <SmallButton disabled={!children[2]} onClick={() => onKeep(children[2])}>Keep</SmallButton>
                 </div>
             </div>
         </>

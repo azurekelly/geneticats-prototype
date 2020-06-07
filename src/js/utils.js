@@ -20,3 +20,7 @@ export function randomBetween(min, max) {
 export function alertWin() {
     alert('You did it! A new goal has been added.');
 }
+
+export function mergeClasses(base, additional) {
+    return base + (additional ? ` ${additional}` : '');
+}

@@ -3,6 +3,7 @@ import {useSelector, useDispatch} from 'react-redux';
 import uniqid from 'uniqid';
 import Cat from './Cat/Cat';
 import BackButton from './BackButton';
+import SmallButton from './SmallButton';
 import {adoptCat} from '../redux/modules/catStore';
 import {goalSelector, completeGoal} from '../redux/modules/goal';
 import {randomGenotype} from '../breeding';
@@ -38,20 +39,16 @@ const Adopt = () => {
         <div id='adopt-screen'>
             <BackButton />
             <div id='refresh-btn' onClick={onRefresh}><span>🗘</span></div>
-            {cats.map((cat, i) => <AdoptSlot key={'slot' + i} id={cat.id} genotype={cat.genotype} />)}
-            {cats.map((cat, i) => <AdoptButton key={'btn' + i} disabled={!cat.id} onClick={() => onAdopt(cat)} />)}
+            {cats.map((cat, i) => (
+                <div key={'slot' + i} className='cat-container'>
+                    {cat.id && <Cat id={cat.id} genotype={cat.genotype} />}
+                </div>
+            ))}
+            {cats.map((cat, i) => (
+                <SmallButton key={'btn' + i} className='adopt-confirm' disabled={!cat.id} onClick={() => onAdopt(cat)}>Adopt</SmallButton>
+            ))}
         </div>
     );
 };
-
-const AdoptSlot = ({id, genotype}) => (
-    <div className='cat-container'>
-        {id && <Cat id={id} genotype={genotype} />}
-    </div>
-);
-
-const AdoptButton = ({disabled, onClick}) => (
-    <div className={'small-btn adopt-confirm' + (disabled ? ' disabled' : '')} onClick={onClick}><span>Adopt</span></div>
-);
 
 export default Adopt;
