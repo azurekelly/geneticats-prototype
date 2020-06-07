@@ -16,3 +16,7 @@ export function fill(el, fill) {
 export function randomBetween(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
+
+export function alertWin() {
+    alert('You did it! A new goal has been added.');
+}

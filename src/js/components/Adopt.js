@@ -1,16 +1,21 @@
 import React, {useState} from 'react';
-import {useDispatch} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import uniqid from 'uniqid';
 import Cat from './Cat/Cat';
 import BackButton from './BackButton';
 import {adoptCat} from '../redux/modules/catStore';
+import {goalSelector, completeGoal} from '../redux/modules/goal';
 import {randomGenotype} from '../breeding';
+import {phenotypesMatch, genotypeToPhenotype} from '../genetics';
+import {alertWin} from '../utils';
 
 const Adopt = () => {
+    const goalCat = useSelector(goalSelector);
     const [cats, setCats] = useState(() => [
         {id: uniqid(), genotype: randomGenotype()},
         {id: uniqid(), genotype: randomGenotype()},
-        {id: uniqid(), genotype: randomGenotype()}
+        // {id: uniqid(), genotype: randomGenotype()}
+        {id: uniqid(), genotype: goalCat.genotype}
     ]);
     const dispatch = useDispatch();
 
@@ -23,6 +28,10 @@ const Adopt = () => {
         if(newCat.id) {
             setCats(cats.map(cat => ((cat.id == newCat.id) ? {id: null, genotype: null} : cat)));
             dispatch(adoptCat(newCat));
+            if(phenotypesMatch(genotypeToPhenotype(newCat.genotype), genotypeToPhenotype(goalCat.genotype))) {
+                dispatch(completeGoal({id: uniqid(), genotype: randomGenotype()}));
+                alertWin();
+            }
         }
     };
 
