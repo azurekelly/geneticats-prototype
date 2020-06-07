@@ -1,3 +1,4 @@
+import uniqid from 'uniqid';
 import {randomBetween} from './utils';
 
 const genomeLength = 13;
@@ -11,6 +12,14 @@ export function randomGenotype() {
     }
 
     return genotype;
+}
+
+export function randomCat() {
+    return {id: uniqid(), genotype: randomGenotype()};
+}
+
+export function randomOffspring(mom, dad) {
+    return {id: uniqid(), genotype: breed(mom.genotype, dad.genotype)};
 }
 
 export function breed(momGenes, dadGenes) {

@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import uniqid from 'uniqid';
 import Cat from './Cat/Cat';
 import BackButton from './BackButton';
 import SmallButton from './SmallButton';
@@ -8,7 +7,7 @@ import BigButton from './BigButton';
 import {startSelectingParent, breedingParentsSelector, targetParentSlotSelector} from '../redux/modules/breeding';
 import {adoptCat} from '../redux/modules/catStore';
 import {goalSelector, completeGoal} from '../redux/modules/goal';
-import {breed, randomGenotype} from '../breeding';
+import {randomOffspring, randomCat} from '../breeding';
 import {genotypeToPhenotype, phenotypesMatch} from '../genetics';
 import {alertWin} from '../utils';
 
@@ -21,9 +20,9 @@ const Breed = () => {
 
     const onBreed = () => {
         setChildren([
-            {id: uniqid(), genotype: breed(parents[0].genotype, parents[1].genotype)},
-            {id: uniqid(), genotype: breed(parents[0].genotype, parents[1].genotype)},
-            {id: uniqid(), genotype: breed(parents[0].genotype, parents[1].genotype)}
+            randomOffspring(parents[0], parents[1]),
+            randomOffspring(parents[0], parents[1]),
+            randomOffspring(parents[0], parents[1])
         ]);
     };
     const onKeep = newCat => {
@@ -31,7 +30,7 @@ const Breed = () => {
             setChildren(children.map(cat => (cat === null || cat.id === newCat.id ? null : cat)));
             dispatch(adoptCat(newCat));
             if(phenotypesMatch(genotypeToPhenotype(newCat.genotype), genotypeToPhenotype(goalCat.genotype))) {
-                dispatch(completeGoal({id: uniqid(), genotype: randomGenotype()}));
+                dispatch(completeGoal(randomCat()));
                 alertWin();
             }
         }

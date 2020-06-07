@@ -1,35 +1,34 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import uniqid from 'uniqid';
 import Cat from './Cat/Cat';
 import BackButton from './BackButton';
 import SmallButton from './SmallButton';
 import {adoptCat} from '../redux/modules/catStore';
 import {goalSelector, completeGoal} from '../redux/modules/goal';
-import {randomGenotype} from '../breeding';
+import {randomCat} from '../breeding';
 import {phenotypesMatch, genotypeToPhenotype} from '../genetics';
 import {alertWin} from '../utils';
 
 const Adopt = () => {
     const goalCat = useSelector(goalSelector);
     const [cats, setCats] = useState(() => [
-        {id: uniqid(), genotype: randomGenotype()},
-        {id: uniqid(), genotype: randomGenotype()},
-        {id: uniqid(), genotype: randomGenotype()}
+        randomCat(),
+        randomCat(),
+        randomCat()
     ]);
     const dispatch = useDispatch();
 
     const onRefresh = () => setCats([
-        {id: uniqid(), genotype: randomGenotype()},
-        {id: uniqid(), genotype: randomGenotype()},
-        {id: uniqid(), genotype: randomGenotype()}
+        randomCat(),
+        randomCat(),
+        randomCat()
     ]);
     const onAdopt = newCat => {
         if(newCat.id) {
             setCats(cats.map(cat => ((cat === null || cat.id === newCat.id) ? null : cat)));
             dispatch(adoptCat(newCat));
             if(phenotypesMatch(genotypeToPhenotype(newCat.genotype), genotypeToPhenotype(goalCat.genotype))) {
-                dispatch(completeGoal({id: uniqid(), genotype: randomGenotype()}));
+                dispatch(completeGoal(randomCat()));
                 alertWin();
             }
         }
