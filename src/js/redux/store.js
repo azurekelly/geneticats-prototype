@@ -4,21 +4,8 @@ import uniqid from 'uniqid';
 import rootReducer from './rootReducer';
 import {randomGenotype} from '../breeding';
 
+// this needs to be set manually rather than using the default of the reducer, since it's a random value
 const initialState = {
-    catStore: {
-        cattery: [
-            {id: uniqid(), genotype: randomGenotype()},
-            {id: uniqid(), genotype: randomGenotype()},
-            {id: uniqid(), genotype: randomGenotype()}
-        ],
-        storage: [
-            {id: uniqid(), genotype: randomGenotype()},
-            {id: uniqid(), genotype: randomGenotype()},
-            {id: uniqid(), genotype: randomGenotype()}
-        ]
-    },
-    route: 'home',
-    score: 0,
     goal: {id: uniqid(), genotype: randomGenotype()}
 };
 
