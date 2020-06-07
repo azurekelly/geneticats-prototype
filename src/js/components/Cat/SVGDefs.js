@@ -6,14 +6,16 @@ import Tortie from './markings/Tortie';
 
 const SVGDefs = ({id, headSize, eyeShape, torbie, point}) => (
     <defs>
-        <filter id={'head-shadow-' + id}>
-            <feDropShadow dx='0.5' dy='3' stdDeviation='2' floodOpacity='0.6' />
+        <filter id={'head-shadow-' + id} width={'200%'} height={'200%'}>
+            <feDropShadow dx='0.5' dy='3' stdDeviation='2' floodOpacity='0.5' />
+            <feDropShadow dx='0' dy='3' stdDeviation='3' floodOpacity='0.35' />
         </filter>
-        <filter id={'eye-shadow-' + id}>
-            <feDropShadow dx='0.5' dy='2' stdDeviation='2' floodOpacity='0.6' />
+        <filter id={'eye-shadow-' + id} width={'200%'} height={'200%'}>
+            <feDropShadow dx='0.5' dy='2' stdDeviation='2.5' floodOpacity='0.8' />
         </filter>
-        <filter id={'muzzle-shadow-' + id}>
-            <feDropShadow dx='1.5' dy='3.5' stdDeviation='1.5' floodOpacity='0.7' />
+        <filter id={'muzzle-shadow-' + id} width={'200%'} height={'200%'}>
+            <feDropShadow dx='3' dy='4' stdDeviation='2.25' floodOpacity='0.6' />
+            <feDropShadow dx='-3' dy='5' stdDeviation='4' floodOpacity='0.25' />
         </filter>
         <clipPath id={'head-' + id}>
             <Head headSize={headSize} />

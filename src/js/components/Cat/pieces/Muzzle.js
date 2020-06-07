@@ -30,7 +30,7 @@ const Muzzle = ({id, muzzleLength, muzzleColor, jawColor}) => {
         <g transform='translate(8 -22)'>
             <path fill={jawColor} stroke='none' d={jawData[muzzleLength]} filter={`url(#muzzle-shadow-${id})`}/>
             <path fill={muzzleColor} stroke='none' d={muzzleData[muzzleLength]} filter={`url(#muzzle-shadow-${id})`}/>
-            <path d={noseData[muzzleLength]} filter={`url(#muzzle-shadow-${id})`}/>
+            <path d={noseData[muzzleLength]} filter={`url(#eye-shadow-${id})`}/>
         </g>
     );
 };
