@@ -49,12 +49,8 @@ const Breed = () => {
                     <SmallButton id='select-2' onClick={() => dispatch(startSelectingParent(1))}>Select</SmallButton>
                 </div>
                 <div id='offspring'>
-                    <Offspring child={children[0]} />
-                    <Offspring child={children[1]} />
-                    <Offspring child={children[2]} />
-                    <SmallButton disabled={!children[0]} onClick={() => onKeep(children[0])}>Keep</SmallButton>
-                    <SmallButton disabled={!children[1]} onClick={() => onKeep(children[1])}>Keep</SmallButton>
-                    <SmallButton disabled={!children[2]} onClick={() => onKeep(children[2])}>Keep</SmallButton>
+                    {children.map(child => <Offspring child={child} />)}
+                    {children.map(child => <SmallButton disabled={child === null} onClick={() => onKeep(child)}>Keep</SmallButton>)}
                 </div>
             </div>
         </>
