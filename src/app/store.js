@@ -1,5 +1,7 @@
 import {createStore} from 'redux';
 import {devToolsEnhancer} from 'redux-devtools-extension';
+import {persistStore, persistReducer} from 'redux-persist';
+import localStorage from 'redux-persist/lib/storage';
 import rootReducer from './rootReducer';
 import {randomCat} from '../utils/genetics';
 
@@ -8,6 +10,16 @@ const initialState = {
     goal: randomCat()
 };
 
-const store = createStore(rootReducer, initialState, devToolsEnhancer());
+const persistConfig = {
+    key: 'root',
+    storage: localStorage,
+    blacklist: ['breeding', 'route']
+};
 
-export default store;
+export const store = createStore(
+    persistReducer(persistConfig, rootReducer),
+    initialState,
+    devToolsEnhancer()
+);
+
+export const persistor = persistStore(store);
