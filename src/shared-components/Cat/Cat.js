@@ -22,7 +22,7 @@ const Cat = ({id, genotype, disabled, onClick}) => {
             className={'cat' + (disabled ? ' disabled' : '')} onClick={disabled ? undefined : onClick}>
             <SVGDefs id={id} headSize={headSize} eyeShape={eyeShape} torbie={red === 'tortie' && tabby === 'tabby'} point={point === 'point'} />
             <g filter={`url(#head-shadow-${id})`}>
-                <Ears earSet={earSet} rightColor={colors.rightEar} leftColor={colors.leftEar} />
+                <Ears id={id} earSet={earSet} rightColor={colors.rightEar} leftColor={colors.leftEar} />
                 <Head headSize={headSize} color={colors.head} />
             </g>
             <g clipPath={`url(#head-${id})`}>
