@@ -1,3 +1,5 @@
+import {CHANGE_TO_HOME} from '../app/routeState';
+
 // ACTIONS
 const START_SELECTING = 'START_SELECTING_PARENT';
 const SELECT = 'SELECT_PARENT';
@@ -32,6 +34,7 @@ const breedReducer = (state = {target: null, parents: [null, null]}, action) => 
                 target: null
             };
         case CANCEL:
+        case CHANGE_TO_HOME:
             return {parents: [null, null], target: null};
         default:
             return state;
