@@ -3,14 +3,13 @@ import {useSelector, useDispatch} from 'react-redux';
 import Cat from '../shared-components/Cat/Cat';
 import {catterySelector} from './catteryState';
 import {depositCat} from '../storage/storageState';
-import {isSelectingSelector, targetParentSlotSelector, breedingParentsSelector, selectParent} from '../breed/breedState';
+import {isSelectingSelector, breedingParentsSelector, selectParent} from '../breed/breedState';
 import {routeSelector} from '../app/routeState';
 
 const CatList = () => {
     const cats = useSelector(catterySelector);
     const route = useSelector(routeSelector);
     const isSelecting = useSelector(isSelectingSelector);
-    const targetSlot = useSelector(targetParentSlotSelector);
     const parents = useSelector(breedingParentsSelector);
     const dispatch = useDispatch();
 
@@ -23,7 +22,7 @@ const CatList = () => {
             (parents[0] === null || cat.id !== parents[0].id) &&
             (parents[1] === null || cat.id !== parents[1].id)
         ) {
-            dispatch(selectParent(targetSlot, cat));
+            dispatch(selectParent(cat));
         }
     };
 
