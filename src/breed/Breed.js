@@ -7,8 +7,7 @@ import BigButton from '../shared-components/BigButton';
 import {startSelectingParent, breedingParentsSelector, targetParentSlotSelector} from './breedState';
 import {adoptCat} from '../cattery/catteryState';
 import {goalSelector, completeGoal} from '../goal/goalState';
-import {randomOffspring, randomCat} from '../utils/breeding';
-import {genotypeToPhenotype, phenotypesMatch} from '../utils/genetics';
+import {doPhenotypesMatch, randomOffspring, randomCat} from '../utils/genetics';
 import {alertWin} from '../utils/utils';
 
 const Breed = () => {
@@ -29,7 +28,7 @@ const Breed = () => {
         if(newCat) {
             setChildren(children.map(cat => (cat === null || cat.id === newCat.id ? null : cat)));
             dispatch(adoptCat(newCat));
-            if(phenotypesMatch(genotypeToPhenotype(newCat.genotype), genotypeToPhenotype(goalCat.genotype))) {
+            if(doPhenotypesMatch(newCat, goalCat)) {
                 dispatch(completeGoal(randomCat()));
                 alertWin();
             }

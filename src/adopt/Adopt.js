@@ -5,8 +5,7 @@ import BackButton from '../shared-components/BackButton';
 import SmallButton from '../shared-components/SmallButton';
 import {adoptCat} from '../cattery/catteryState';
 import {goalSelector, completeGoal} from '../goal/goalState';
-import {randomCat} from '../utils/breeding';
-import {phenotypesMatch, genotypeToPhenotype} from '../utils/genetics';
+import {randomCat, doPhenotypesMatch} from '../utils/genetics';
 import {alertWin} from '../utils/utils';
 
 const Adopt = () => {
@@ -27,7 +26,7 @@ const Adopt = () => {
         if(newCat.id) {
             setCats(cats.map(cat => ((cat === null || cat.id === newCat.id) ? null : cat)));
             dispatch(adoptCat(newCat));
-            if(phenotypesMatch(genotypeToPhenotype(newCat.genotype), genotypeToPhenotype(goalCat.genotype))) {
+            if(doPhenotypesMatch(newCat, goalCat)) {
                 dispatch(completeGoal(randomCat()));
                 alertWin();
             }

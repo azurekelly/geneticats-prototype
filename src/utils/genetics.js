@@ -1,5 +1,8 @@
+import uniqid from 'uniqid';
 import {palette} from './palette';
-import {countSetBits} from './utils';
+import {countSetBits, randomBetween} from './utils';
+
+const genomeLength = 13;
 
 export function genotypeToPhenotype(genotype) {
     // counting the bits gets you the equivalent values XX (2), Xx (1), or xx (0), while ignoring gene order
@@ -54,9 +57,67 @@ export function phenotypeToColors(phenotype) {
     return colors;
 }
 
-export function phenotypesMatch(phenotype1, phenotype2) {
+export function doPhenotypesMatch(cat1, cat2) {
+    const phenotype1 = genotypeToPhenotype(cat1.genotype);
+    const phenotype2 = genotypeToPhenotype(cat2.genotype);
+
     for(const gene in phenotype1) {
         if(phenotype1[gene] !== phenotype2[gene]) return false;
     }
     return true;
+}
+
+export function randomCat() {
+    return {id: uniqid(), genotype: randomGenotype()};
+}
+
+export function randomOffspring(mom, dad) {
+    return {id: uniqid(), genotype: breed(mom.genotype, dad.genotype)};
+}
+
+export function randomGenotype() {
+    let genotype = 0;
+    const genes = [0, 0, 1, 2, 3];
+    for(let i = 0; i < 13; i++) {
+        genotype <<= 2;
+        genotype |= genes[randomBetween(0, 5)];
+    }
+
+    return genotype;
+}
+
+function breed(momGenes, dadGenes) {
+    const momChromosome = randomChromosome(momGenes, genomeLength);
+    const dadChromosome = randomChromosome(dadGenes, genomeLength) << 1;
+    return momChromosome | dadChromosome;
+}
+
+//Currently unnecessary, but will become increasingly more useful as gene bit lengths increase
+function pickRandomGene() {
+    return randomBetween(1, 2);
+}
+
+function randomChromosome(genotype, genomeLength) {
+    let result = 0;
+    for(let i = 0; i < genomeLength; i++) {
+        const shift = i * 2;
+        const mask = pickRandomGene();
+        let gene;
+
+        //shift genotype to remove already processed genes and ensure the last 2 bits are always the gene that's being chosen for
+        if(i > 0) {
+            genotype = genotype >>> 2;
+        }
+
+        gene = genotype & mask;
+
+        if(mask === 2) {
+            gene = gene >>> 1;
+        }
+
+        gene = gene << shift;
+
+        result = result | gene;
+    }
+    return result;
 }
