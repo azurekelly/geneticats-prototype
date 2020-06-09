@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    mode: 'development',
     entry: './src/index.js',
     output: {
         filename: 'main.js',
@@ -13,10 +12,6 @@ module.exports = {
             {
                 test: /\.js$/,
                 use: 'babel-loader'
-            },
-            {
-                test: /\.css$/,
-                use: ['style-loader', 'css-loader']
             },
             // no image files are currently included directly in the html, so this isn't needed quite yet
             {
@@ -41,10 +36,10 @@ module.exports = {
             filename: 'index.html',
             template: 'src/index.html'
         }),
-        new HtmlWebpackPlugin({
-            filename: 'cheatsheet.html',
-            template: 'src/cheatsheet.html',
-            chunks: []
-        })
+        // new HtmlWebpackPlugin({
+        //     filename: 'cheatsheet.html',
+        //     template: 'src/cheatsheet.html',
+        //     chunks: []
+        // })
     ]
 };
