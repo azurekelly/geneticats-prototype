@@ -12,22 +12,6 @@ module.exports = {
             {
                 test: /\.js$/,
                 use: 'babel-loader'
-            },
-            // no image files are currently included directly in the html, so this isn't needed quite yet
-            {
-                test: /\.html$/,
-                use: ['html-loader']
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg)$/,
-                use: [
-                    {
-                        loader: 'file-loader',
-                        options: {
-                            name: '[name].[ext]'
-                        }
-                    }
-                ]
             }
         ]
     },
@@ -35,11 +19,6 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: 'src/index.html'
-        }),
-        // new HtmlWebpackPlugin({
-        //     filename: 'cheatsheet.html',
-        //     template: 'src/cheatsheet.html',
-        //     chunks: []
-        // })
+        })
     ]
 };
