@@ -1,9 +1,10 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import Cat from './Cat/Cat';
-import {catterySelector, depositCat} from '../redux/modules/catStore';
-import {isSelectingSelector, targetParentSlotSelector, breedingParentsSelector, selectParent} from '../redux/modules/breeding';
-import {routeSelector} from '../redux/modules/route';
+import Cat from '../shared-components/Cat/Cat';
+import {catterySelector} from './catteryState';
+import {depositCat} from '../storage/storageState';
+import {isSelectingSelector, targetParentSlotSelector, breedingParentsSelector, selectParent} from '../breed/breedState';
+import {routeSelector} from '../app/routeState';
 
 const CatList = () => {
     const cats = useSelector(catterySelector);

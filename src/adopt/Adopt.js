@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import Cat from './Cat/Cat';
-import BackButton from './BackButton';
-import SmallButton from './SmallButton';
-import {adoptCat} from '../redux/modules/catStore';
-import {goalSelector, completeGoal} from '../redux/modules/goal';
-import {randomCat} from '../breeding';
-import {phenotypesMatch, genotypeToPhenotype} from '../genetics';
-import {alertWin} from '../utils';
+import Cat from '../shared-components/Cat/Cat';
+import BackButton from '../shared-components/BackButton';
+import SmallButton from '../shared-components/SmallButton';
+import {adoptCat} from '../cattery/catteryState';
+import {goalSelector, completeGoal} from '../goal/goalState';
+import {randomCat} from '../utils/breeding';
+import {phenotypesMatch, genotypeToPhenotype} from '../utils/genetics';
+import {alertWin} from '../utils/utils';
 
 const Adopt = () => {
     const goalCat = useSelector(goalSelector);

@@ -1,15 +1,15 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import Cat from './Cat/Cat';
-import BackButton from './BackButton';
-import SmallButton from './SmallButton';
-import BigButton from './BigButton';
-import {startSelectingParent, breedingParentsSelector, targetParentSlotSelector} from '../redux/modules/breeding';
-import {adoptCat} from '../redux/modules/catStore';
-import {goalSelector, completeGoal} from '../redux/modules/goal';
-import {randomOffspring, randomCat} from '../breeding';
-import {genotypeToPhenotype, phenotypesMatch} from '../genetics';
-import {alertWin} from '../utils';
+import Cat from '../shared-components/Cat/Cat';
+import BackButton from '../shared-components/BackButton';
+import SmallButton from '../shared-components/SmallButton';
+import BigButton from '../shared-components/BigButton';
+import {startSelectingParent, breedingParentsSelector, targetParentSlotSelector} from './breedState';
+import {adoptCat} from '../cattery/catteryState';
+import {goalSelector, completeGoal} from '../goal/goalState';
+import {randomOffspring, randomCat} from '../utils/breeding';
+import {genotypeToPhenotype, phenotypesMatch} from '../utils/genetics';
+import {alertWin} from '../utils/utils';
 
 const Breed = () => {
     const [children, setChildren] = useState([null, null, null]);

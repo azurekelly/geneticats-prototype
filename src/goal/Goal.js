@@ -1,7 +1,7 @@
 import React from 'react';
-import Cat from './Cat/Cat';
+import Cat from '../shared-components/Cat/Cat';
 import {useSelector} from 'react-redux';
-import {scoreSelector, goalSelector} from '../redux/modules/goal';
+import {scoreSelector, goalSelector} from './goalState';
 
 const Goal = () => {
     const score = useSelector(scoreSelector);

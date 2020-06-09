@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {changeRoute} from '../redux/modules/route';
-import {cancelParentSelection} from '../redux/modules/breeding';
+import {changeRoute} from '../app/routeState';
+import {cancelParentSelection} from '../breed/breedState';
 
 const BackButton = () => {
     const dispatch = useDispatch();

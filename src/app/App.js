@@ -1,12 +1,12 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
-import Goal from './Goal';
-import Cattery from './Cattery';
-import Home from './Home';
-import Storage from './Storage';
-import Adopt from './Adopt';
-import Breed from './Breed';
-import {routeSelector} from '../redux/modules/route';
+import {useSelector} from 'react-redux';
+import Goal from '../goal/Goal';
+import Cattery from '../cattery/Cattery';
+import Home from '../home/Home';
+import Storage from '../storage/Storage';
+import Adopt from '../adopt/Adopt';
+import Breed from '../breed/Breed';
+import {routeSelector} from './routeState';
 
 const App = () => {
     const route = useSelector(routeSelector);

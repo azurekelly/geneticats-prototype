@@ -1,7 +1,7 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import BigButton from './BigButton';
-import {changeRoute} from '../redux/modules/route';
+import BigButton from '../shared-components/BigButton';
+import {changeRoute} from '../app/routeState';
 
 const Home = () => {
     const dispatch = useDispatch();

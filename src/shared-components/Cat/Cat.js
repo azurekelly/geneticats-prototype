@@ -9,7 +9,7 @@ import Tabby from './markings/Tabby';
 import Tortie from './markings/Tortie';
 import White from './markings/White';
 import SVGDefs from './SVGDefs';
-import {genotypeToPhenotype, phenotypeToColors} from '../../genetics';
+import {genotypeToPhenotype, phenotypeToColors} from '../../utils/genetics';
 
 const Cat = ({id, genotype, disabled, onClick}) => {
     // TODO convert phenotype and colors to state that never gets changed, just to avoid them be recalculated each render

@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import Cat from './Cat/Cat';
-import BackButton from './BackButton';
-import {storageSelector, withdrawCat} from '../redux/modules/catStore';
+import Cat from '../shared-components/Cat/Cat';
+import BackButton from '../shared-components/BackButton';
+import {storageSelector, withdrawCat} from './storageState';
 
 const Storage = () => {
     const cats = useSelector(storageSelector);
