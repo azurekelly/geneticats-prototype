@@ -6,7 +6,7 @@ import {depositCat} from '../storage/storageState';
 import {isSelectingSelector, breedingParentsSelector, selectParent} from '../breed/breedState';
 import {routeSelector} from '../app/routeState';
 
-const CatList = () => {
+const Cattery = () => {
     const cats = useSelector(catterySelector);
     const route = useSelector(routeSelector);
     const isSelecting = useSelector(isSelectingSelector);
@@ -42,4 +42,4 @@ const CatList = () => {
     </>);
 };
 
-export default CatList;
+export default Cattery;
