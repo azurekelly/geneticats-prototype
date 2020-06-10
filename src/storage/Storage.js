@@ -9,9 +9,9 @@ const Storage = () => {
     const dispatch = useDispatch();
     return (
         <div id='storage-screen'>
-            <BackButton />
+            <BackButton data-testid='back-btn' />
             {cats.map(({id, genotype}) => (
-                <Cat key={id} id={id} genotype={genotype} onClick={() => dispatch(withdrawCat({id, genotype}))} />))
+                <Cat data-testid='cat' key={id} id={id} genotype={genotype} onClick={() => dispatch(withdrawCat({id, genotype}))} />))
             }
         </div>
     );

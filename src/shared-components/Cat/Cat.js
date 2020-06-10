@@ -11,7 +11,7 @@ import White from './markings/White';
 import SVGDefs from './SVGDefs';
 import {genotypeToPhenotype, phenotypeToColors} from '../../utils/genetics';
 
-const Cat = ({id, genotype, disabled, onClick}) => {
+const Cat = ({id, genotype, disabled, onClick, ...props}) => {
     // TODO convert phenotype and colors to state that never gets changed, just to avoid them be recalculated each render
     const phenotype = genotypeToPhenotype(genotype);
     const colors = phenotypeToColors(phenotype);
@@ -19,7 +19,7 @@ const Cat = ({id, genotype, disabled, onClick}) => {
 
     return (
         <svg xmlns='http://www.w3.org/2000/svg' xmlnsXlink='http://www.w3.org/1999/xlink' width={389} height={306} viewBox='0 0 389 306'
-            className={'cat' + (disabled ? ' disabled' : '')} onClick={disabled ? undefined : onClick}>
+            id={id} className={'cat' + (disabled ? ' disabled' : '')} onClick={disabled ? undefined : onClick} {...props}>
             <SVGDefs id={id} headSize={headSize} eyeShape={eyeShape} torbie={red === 'tortie' && tabby === 'tabby'} point={point === 'point'} />
             <g filter={`url(#head-shadow-${id})`}>
                 <Ears id={id} earSet={earSet} rightColor={colors.rightEar} leftColor={colors.leftEar} />
