@@ -35,15 +35,15 @@ const Adopt = () => {
 
     return (
         <div id='adopt-screen'>
-            <BackButton />
-            <div id='refresh-btn' onClick={onRefresh}><span>🗘</span></div>
+            <BackButton data-testid='back-btn' />
+            <div data-testid='refresh-btn' id='refresh-btn' onClick={onRefresh}><span>🗘</span></div>
             {cats.map((cat, i) => (
                 <div key={'slot' + i} className='cat-container'>
-                    {cat && <Cat id={cat.id} genotype={cat.genotype} />}
+                    {cat && <Cat data-testid={'cat-' + i} id={cat.id} genotype={cat.genotype} />}
                 </div>
             ))}
             {cats.map((cat, i) => (
-                <SmallButton key={'btn' + i} className='adopt-confirm' disabled={!cat} onClick={() => onAdopt(cat)}>Adopt</SmallButton>
+                <SmallButton data-testid={'keep-' + i} key={'btn' + i} className='adopt-confirm' disabled={!cat} onClick={() => onAdopt(cat)}>Adopt</SmallButton>
             ))}
         </div>
     );
