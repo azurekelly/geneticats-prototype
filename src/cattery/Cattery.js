@@ -29,8 +29,9 @@ const Cattery = () => {
     return (<>
         <div id='cattery-header' className='header'><span>YOUR CATS</span></div>
         <div id='cattery' className={isSelecting ? 'selected' : ''}>
-            {cats.map(({id, genotype}) => (
+            {cats.map(({id, genotype}, i) => (
                 <Cat
+                    data-testid={'cat-' + i}
                     key={id}
                     id={id}
                     genotype={genotype}
