@@ -8,6 +8,7 @@ body, html, #game-container {
 
 body {
     font-family: 'Open Sans', Arial, sans-serif;
+    background: #fffaf1;
 }
 
 #game-container {
@@ -29,7 +30,7 @@ body {
     grid-area: cattery;
     min-height: 250px;
     overflow-x: auto;
-    background: #faf9f7;
+    background: #fffaf1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,7 +49,7 @@ body {
 
 #goal {
     grid-area: goal;
-    background: #faf9f7;
+    background: #fffaf1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -71,12 +72,12 @@ body {
     display: flex;
     align-items: center;
     padding-left: 24px;
-    background: silver;
+    background: #bb9b71;
     font-size: 18px;
 }
 
 .cat-container {
-    background-color: #faf9f7;
+    background-color: #eae1ce;
     height: 200px;
     width: 250px;
     border-radius: 4px;
@@ -84,7 +85,7 @@ body {
 }
 
 .big-btn {
-    background-color: silver;
+    background-color: #bb9b71;
     font-size: 20px;
     height: 96px;
     width: 33%;
@@ -93,21 +94,19 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border: 2px solid gray;
-    box-shadow: 2px 2px 12px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.25);
     cursor: pointer;
 }
 
 .small-btn {
-    background: silver;
-    border: 1px solid black;
+    background: #bb9b71;
     border-radius: 4px;
     width: 128px;
     height: 24px;
     padding: 4px 0;
     font-size: 14px;
     text-align: center;
-    box-shadow: 2px 2px 8px 0 rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.25);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -117,9 +116,8 @@ body {
 #back-btn {
     position: absolute;
     z-index: 9999;
-    background-color: silver;
+    background-color: #bb9b71;
     border-bottom-right-radius: 4px;
-    border: 2px solid gray;
     height: 48px;
     width: 48px;
     left: 0;
@@ -128,7 +126,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 28px;
-    box-shadow: 1px 1px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     cursor: pointer;
 }
@@ -136,9 +134,8 @@ body {
 #refresh-btn {
     position: absolute;
     z-index: 9999;
-    background-color: silver;
+    background-color: #bb9b71;
     border-bottom-left-radius: 4px;
-    border: 2px solid gray;
     height: 48px;
     width: 48px;
     right: 0;
@@ -147,7 +144,7 @@ body {
     align-items: center;
     justify-content: center;
     font-size: 28px;
-    box-shadow: -1px -1px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 1px 2px 0 rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
     cursor: pointer;
 }
