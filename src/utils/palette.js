@@ -1,0 +1,22 @@
+export const palette = {
+    'point': '#e4d5bd',
+    'white': '#f3efea',
+    'black': '#2e2e2e',
+    'blackTabby': '#83745c',
+    'blackTabbyPoint': '#9c8a6f',
+    'blackPoint': '#3f342b',
+    'blackDilute': '#929292',
+    'blackDiluteTabby': '#b3b1ac',
+    'blackDiluteTabbyPoint': '#b3b1ac',
+    'blackDilutePoint': '#929292',
+    'red': '#a75a13',
+    'redTabby': '#cb8e55',
+    'redTabbyPoint': '#cb8e55',
+    'redPoint': '#a75a13',
+    'redDilute': '#cda284',
+    'redDiluteTabby': '#e0bfa4',
+    'redDiluteTabbyPoint': '#e0bfa4',
+    'redDilutePoint': '#cda284',
+    'blue': '#46a2cc',
+    'yellow': '#dfb305'
+};
