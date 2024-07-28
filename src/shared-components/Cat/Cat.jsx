@@ -1,4 +1,3 @@
-import ReactDOM from 'react-dom';
 import Ears from './pieces/Ears';
 import Head from './pieces/Head';
 import Muzzle from './pieces/Muzzle';
@@ -68,9 +67,5 @@ const Cat = ({ id, genotype, disabled, onClick, ...props }) => {
     </svg>
   );
 };
-
-export function renderCat(id, genotype, container) {
-  ReactDOM.render(<Cat id={id} genotype={genotype} />, container);
-}
 
 export default Cat;
