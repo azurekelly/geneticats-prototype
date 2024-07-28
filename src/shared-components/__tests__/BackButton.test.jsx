@@ -1,4 +1,5 @@
 import React from 'react';
+import {vi} from 'vitest';
 import {render, fireEvent} from '@testing-library/react';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux';
@@ -17,7 +18,7 @@ it('renders without crashing', () => {
 });
 it('dispatches changeToHome action on click', () => {
     const mockStore = createStore(rootReducer, {});
-    mockStore.dispatch = jest.fn();
+    mockStore.dispatch = vi.fn();
     const {getByTestId} = render(getComponent(<BackButton data-testid='back-btn' />, mockStore));
     fireEvent.click(getByTestId('back-btn'));
     expect(mockStore.dispatch).toHaveBeenCalledWith(changeToHome());
