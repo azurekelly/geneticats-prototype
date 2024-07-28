@@ -1,11 +1,12 @@
 module.exports = {
   root: true,
-  env: { browser: true, es2020: true, node: true, jest: true },
+  env: { browser: true, es2020: true },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
+    'prettier',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
@@ -18,5 +19,14 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'react/prop-types': [0, {}],
+  },
+  globals: {
+    it: true,
+    describe: true,
+    expect: true,
+    beforeEach: true,
+    beforeAll: true,
+    afterEach: true,
+    afterAll: true,
   },
 };
