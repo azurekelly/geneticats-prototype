@@ -20,4 +20,13 @@ module.exports = {
     ],
     'react/prop-types': [0, {}],
   },
+  globals: {
+    it: true,
+    describe: true,
+    expect: true,
+    beforeEach: true,
+    beforeAll: true,
+    afterEach: true,
+    afterAll: true,
+  },
 };
