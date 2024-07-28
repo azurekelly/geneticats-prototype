@@ -1,5 +1,3 @@
-import React from 'react';
-
 const White = ({ white, color }) => (
   <>
     {white === 'high' ?

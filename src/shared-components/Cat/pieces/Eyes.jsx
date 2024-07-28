@@ -1,4 +1,3 @@
-import React from 'react';
 import OuterEye from './OuterEye';
 
 const Eyes = ({ id, eyeShape, color = '#dfb305' }) => (

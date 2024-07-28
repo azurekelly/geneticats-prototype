@@ -1,5 +1,3 @@
-import React from 'react';
-
 const Ears = ({ id, earSet, rightColor, leftColor }) => {
   const leftTransform = [
     'scale(1 -1) rotate(-18 -339 -457)',

@@ -1,4 +1,3 @@
-import React from 'react';
 import Head from './pieces/Head';
 import OuterEye from './pieces/OuterEye';
 import Point from './markings/Point';

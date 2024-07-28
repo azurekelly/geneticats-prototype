@@ -1,4 +1,3 @@
-import React from 'react';
 import Cat from '../shared-components/Cat/Cat';
 import { useSelector } from 'react-redux';
 import { scoreSelector, goalSelector } from './goalState';

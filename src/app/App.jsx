@@ -1,4 +1,3 @@
-import React from 'react';
 import { useSelector } from 'react-redux';
 import Goal from '../goal/Goal';
 import Cattery from '../cattery/Cattery';

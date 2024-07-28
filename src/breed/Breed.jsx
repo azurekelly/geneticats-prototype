@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Cat from '../shared-components/Cat/Cat';
 import BackButton from '../shared-components/BackButton';

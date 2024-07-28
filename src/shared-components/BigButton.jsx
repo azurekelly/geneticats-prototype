@@ -1,4 +1,3 @@
-import React from 'react';
 import { mergeClasses } from '../utils/utils';
 
 const BigButton = ({ disabled, onClick, className, children, ...props }) => (
