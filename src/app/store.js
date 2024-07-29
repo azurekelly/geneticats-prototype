@@ -13,7 +13,7 @@ const initialState = {
 const persistConfig = {
   key: 'root',
   storage: localStorage,
-  blacklist: ['breeding', 'route'],
+  blacklist: ['breeding', 'route', 'debugMode'],
 };
 
 export const store = createStore(

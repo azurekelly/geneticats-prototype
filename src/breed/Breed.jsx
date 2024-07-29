@@ -11,6 +11,7 @@ import {
 } from './breedState';
 import { adoptCat } from '../cattery/catteryState';
 import { goalSelector, completeGoal } from '../goal/goalState';
+import { debugSelector } from '../app/debugState';
 import {
   doPhenotypesMatch,
   randomOffspring,
@@ -23,6 +24,7 @@ const Breed = () => {
   const parents = useSelector(breedingParentsSelector);
   const targetSlot = useSelector(targetParentSlotSelector);
   const goalCat = useSelector(goalSelector);
+  const isDebugMode = useSelector(debugSelector);
   const dispatch = useDispatch();
 
   const onBreed = () => {
@@ -44,6 +46,17 @@ const Breed = () => {
         dispatch(completeGoal(randomCat()));
         alertWin();
       }
+    }
+  };
+  const handleDebugClick = (offspringIndex) => () => {
+    const newGenotype = prompt('Enter new genotype');
+    if (newGenotype !== null) {
+      const newChildren = [...children];
+      newChildren[offspringIndex] = {
+        ...newChildren[offspringIndex],
+        genotype: newGenotype,
+      };
+      setChildren(newChildren);
     }
   };
 
@@ -87,6 +100,16 @@ const Breed = () => {
               Keep
             </SmallButton>
           ))}
+          {isDebugMode &&
+            children.map((child, i) => (
+              <button
+                onClick={handleDebugClick(i)}
+                disabled={child === null}
+                key={i}
+              >
+                Set genotype
+              </button>
+            ))}
         </div>
       </div>
     </>
