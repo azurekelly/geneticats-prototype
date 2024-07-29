@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import route from './routeState';
+import debugMode from './debugState';
 import cattery from '../cattery/catteryState';
 import storage from '../storage/storageState';
 import { scoreReducer, goalReducer } from '../goal/goalState';
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   score: scoreReducer,
   goal: goalReducer,
   breeding,
+  debugMode,
 });
 
 export default rootReducer;

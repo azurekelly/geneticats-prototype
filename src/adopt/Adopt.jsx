@@ -5,11 +5,13 @@ import BackButton from '../shared-components/BackButton';
 import SmallButton from '../shared-components/SmallButton';
 import { adoptCat } from '../cattery/catteryState';
 import { goalSelector, completeGoal } from '../goal/goalState';
+import { debugSelector } from '../app/debugState';
 import { randomCat, doPhenotypesMatch } from '../utils/genetics';
 import { alertWin } from '../utils/utils';
 
 const Adopt = () => {
   const goalCat = useSelector(goalSelector);
+  const isDebugMode = useSelector(debugSelector);
   const [cats, setCats] = useState(() => [
     randomCat(),
     randomCat(),
@@ -28,6 +30,17 @@ const Adopt = () => {
         dispatch(completeGoal(randomCat()));
         alertWin();
       }
+    }
+  };
+  const handleDebugClick = (catIndex) => () => {
+    const newGenotype = prompt('Enter new genotype');
+    if (newGenotype !== null) {
+      const newCats = [...cats];
+      newCats[catIndex] = {
+        ...newCats[catIndex],
+        genotype: newGenotype,
+      };
+      setCats(newCats);
     }
   };
 
@@ -55,6 +68,12 @@ const Adopt = () => {
           Adopt
         </SmallButton>
       ))}
+      {isDebugMode &&
+        cats.map((cat, i) => (
+          <button onClick={handleDebugClick(i)} disabled={!cat} key={i}>
+            Set genotype
+          </button>
+        ))}
     </div>
   );
 };
